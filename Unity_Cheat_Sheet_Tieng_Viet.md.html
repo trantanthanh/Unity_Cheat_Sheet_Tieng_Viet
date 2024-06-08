@@ -1,0 +1,6432 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Unity_Cheat_Sheet_Tieng_Viet.md</title>
+    <style>
+        @charset "UTF-8";
+        @import 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css';
+
+        code {
+            color: #c7254e;
+            background-color: #f9f2f4;
+            border-radius: 4px
+        }
+
+        code,
+        kbd {
+            padding: 2px 4px
+        }
+
+        kbd {
+            color: #fff;
+            background-color: #333;
+            border-radius: 3px;
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25)
+        }
+
+        kbd kbd {
+            padding: 0;
+            font-size: 100%;
+            box-shadow: none
+        }
+
+        pre {
+            display: block;
+            margin: 0 0 10px;
+            word-break: break-all;
+            word-wrap: break-word;
+            color: #333;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 4px
+        }
+
+        pre code {
+            padding: 0;
+            font-size: inherit;
+            color: inherit;
+            white-space: pre-wrap;
+            background-color: transparent;
+            border-radius: 0
+        }
+
+        .pre-scrollable {
+            max-height: 340px;
+            overflow-y: scroll
+        }
+
+        table {
+            background-color: transparent
+        }
+
+        th {
+            text-align: left
+        }
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px
+        }
+
+        .table>thead>tr>th {
+            padding: 8px;
+            line-height: 1.4285714;
+            border-top: 1px solid #ddd
+        }
+
+        .table>thead>tr>td,
+        .table>tbody>tr>th,
+        .table>tbody>tr>td,
+        .table>tfoot>tr>th,
+        .table>tfoot>tr>td {
+            padding: 8px;
+            line-height: 1.4285714;
+            vertical-align: top;
+            border-top: 1px solid #ddd
+        }
+
+        .table>thead>tr>th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #ddd
+        }
+
+        .table>caption+thead>tr:first-child>th,
+        .table>caption+thead>tr:first-child>td,
+        .table>colgroup+thead>tr:first-child>th,
+        .table>colgroup+thead>tr:first-child>td,
+        .table>thead:first-child>tr:first-child>th,
+        .table>thead:first-child>tr:first-child>td {
+            border-top: 0
+        }
+
+        .table>tbody+tbody {
+            border-top: 2px solid #ddd
+        }
+
+        .table .table {
+            background-color: #fff
+        }
+
+        .table-condensed>thead>tr>th,
+        .table-condensed>thead>tr>td,
+        .table-condensed>tbody>tr>th,
+        .table-condensed>tbody>tr>td,
+        .table-condensed>tfoot>tr>th,
+        .table-condensed>tfoot>tr>td {
+            padding: 5px
+        }
+
+        .table-bordered,
+        .table-bordered>thead>tr>th,
+        .table-bordered>thead>tr>td,
+        .table-bordered>tbody>tr>th,
+        .table-bordered>tbody>tr>td,
+        .table-bordered>tfoot>tr>th,
+        .table-bordered>tfoot>tr>td {
+            border: 1px solid #ddd
+        }
+
+        .table-bordered>thead>tr>th,
+        .table-bordered>thead>tr>td {
+            border-bottom-width: 2px
+        }
+
+        .table-striped>tbody>tr:nth-child(odd)>td,
+        .table-striped>tbody>tr:nth-child(odd)>th {
+            background-color: #f9f9f9
+        }
+
+        .table-hover>tbody>tr:hover>td,
+        .table-hover>tbody>tr:hover>th {
+            background-color: #f5f5f5
+        }
+
+        table col[class*="col-"] {
+            position: static;
+            float: none;
+            display: table-column
+        }
+
+        table td[class*="col-"],
+        table th[class*="col-"] {
+            position: static;
+            float: none;
+            display: table-cell
+        }
+
+        .table>thead>tr>td.active,
+        .table>thead>tr>th.active,
+        .table>thead>tr.active>td,
+        .table>thead>tr.active>th,
+        .table>tbody>tr>td.active,
+        .table>tbody>tr>th.active,
+        .table>tbody>tr.active>td,
+        .table>tbody>tr.active>th,
+        .table>tfoot>tr>td.active,
+        .table>tfoot>tr>th.active,
+        .table>tfoot>tr.active>td,
+        .table>tfoot>tr.active>th {
+            background-color: #f5f5f5
+        }
+
+        .table-hover>tbody>tr>td.active:hover,
+        .table-hover>tbody>tr>th.active:hover,
+        .table-hover>tbody>tr.active:hover>td,
+        .table-hover>tbody>tr:hover>.active,
+        .table-hover>tbody>tr.active:hover>th {
+            background-color: #e8e8e8
+        }
+
+        .table>thead>tr>td.success,
+        .table>thead>tr>th.success,
+        .table>thead>tr.success>td,
+        .table>thead>tr.success>th,
+        .table>tbody>tr>td.success,
+        .table>tbody>tr>th.success,
+        .table>tbody>tr.success>td,
+        .table>tbody>tr.success>th,
+        .table>tfoot>tr>td.success,
+        .table>tfoot>tr>th.success,
+        .table>tfoot>tr.success>td,
+        .table>tfoot>tr.success>th {
+            background-color: #dff0d8
+        }
+
+        .table-hover>tbody>tr>td.success:hover,
+        .table-hover>tbody>tr>th.success:hover,
+        .table-hover>tbody>tr.success:hover>td,
+        .table-hover>tbody>tr:hover>.success,
+        .table-hover>tbody>tr.success:hover>th {
+            background-color: #d0e9c6
+        }
+
+        .table>thead>tr>td.info,
+        .table>thead>tr>th.info,
+        .table>thead>tr.info>td,
+        .table>thead>tr.info>th,
+        .table>tbody>tr>td.info,
+        .table>tbody>tr>th.info,
+        .table>tbody>tr.info>td,
+        .table>tbody>tr.info>th,
+        .table>tfoot>tr>td.info,
+        .table>tfoot>tr>th.info,
+        .table>tfoot>tr.info>td,
+        .table>tfoot>tr.info>th {
+            background-color: #d9edf7
+        }
+
+        .table-hover>tbody>tr>td.info:hover,
+        .table-hover>tbody>tr>th.info:hover,
+        .table-hover>tbody>tr.info:hover>td,
+        .table-hover>tbody>tr:hover>.info,
+        .table-hover>tbody>tr.info:hover>th {
+            background-color: #c4e3f3
+        }
+
+        .table>thead>tr>td.warning,
+        .table>thead>tr>th.warning,
+        .table>thead>tr.warning>td,
+        .table>thead>tr.warning>th,
+        .table>tbody>tr>td.warning,
+        .table>tbody>tr>th.warning,
+        .table>tbody>tr.warning>td,
+        .table>tbody>tr.warning>th,
+        .table>tfoot>tr>td.warning,
+        .table>tfoot>tr>th.warning,
+        .table>tfoot>tr.warning>td,
+        .table>tfoot>tr.warning>th {
+            background-color: #fcf8e3
+        }
+
+        .table-hover>tbody>tr>td.warning:hover,
+        .table-hover>tbody>tr>th.warning:hover,
+        .table-hover>tbody>tr.warning:hover>td,
+        .table-hover>tbody>tr:hover>.warning,
+        .table-hover>tbody>tr.warning:hover>th {
+            background-color: #faf2cc
+        }
+
+        .table>thead>tr>td.danger,
+        .table>thead>tr>th.danger,
+        .table>thead>tr.danger>td,
+        .table>thead>tr.danger>th,
+        .table>tbody>tr>td.danger,
+        .table>tbody>tr>th.danger,
+        .table>tbody>tr.danger>td,
+        .table>tbody>tr.danger>th,
+        .table>tfoot>tr>td.danger,
+        .table>tfoot>tr>th.danger,
+        .table>tfoot>tr.danger>td,
+        .table>tfoot>tr.danger>th {
+            background-color: #f2dede
+        }
+
+        .table-hover>tbody>tr>td.danger:hover,
+        .table-hover>tbody>tr>th.danger:hover,
+        .table-hover>tbody>tr.danger:hover>td,
+        .table-hover>tbody>tr:hover>.danger,
+        .table-hover>tbody>tr.danger:hover>th {
+            background-color: #ebcccc
+        }
+
+        fieldset {
+            border: 0;
+            min-width: 0
+        }
+
+        legend {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 21px;
+            line-height: inherit;
+            color: #333;
+            border-bottom: 1px solid #e5e5e5
+        }
+
+        label {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 5px;
+            font-weight: 700
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin: 4px 0 0;
+            margin-top: 1px \9;
+            line-height: normal
+        }
+
+        input[type="file"] {
+            display: block
+        }
+
+        input[type="range"] {
+            display: block;
+            width: 100%
+        }
+
+        select[multiple],
+        select[size] {
+            height: auto
+        }
+
+        input[type="file"]:focus,
+        input[type="radio"]:focus,
+        input[type="checkbox"]:focus {
+            outline: thin dotted;
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px
+        }
+
+        output {
+            padding-top: 7px
+        }
+
+        output,
+        .form-control {
+            display: block;
+            font-size: 14px;
+            line-height: 1.4285714;
+            color: #555
+        }
+
+        .form-control {
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+        }
+
+        .form-control:focus {
+            border-color: #66afe9;
+            outline: 0;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+        }
+
+        .form-control::-moz-placeholder {
+            color: #777;
+            opacity: 1
+        }
+
+        .form-control:-ms-input-placeholder {
+            color: #777
+        }
+
+        .form-control::-webkit-input-placeholder {
+            color: #777
+        }
+
+        .form-control[disabled],
+        .form-control[readonly],
+        fieldset[disabled] .form-control {
+            cursor: not-allowed;
+            background-color: #eee;
+            opacity: 1
+        }
+
+        textarea.form-control {
+            height: auto
+        }
+
+        input[type="date"],
+        input[type="time"],
+        input[type="datetime-local"],
+        input[type="month"] {
+            line-height: 34px;
+            line-height: 1.4285714 \0
+        }
+
+        input[type="date"].input-sm,
+        .form-horizontal .form-group-sm input.form-control[type="date"],
+        .input-group-sm>input.form-control[type="date"],
+        .input-group-sm>input.input-group-addon[type="date"],
+        .input-group-sm>.input-group-btn>input.btn[type="date"],
+        input[type="time"].input-sm,
+        .form-horizontal .form-group-sm input.form-control[type="time"],
+        .input-group-sm>input.form-control[type="time"],
+        .input-group-sm>input.input-group-addon[type="time"],
+        .input-group-sm>.input-group-btn>input.btn[type="time"],
+        input[type="datetime-local"].input-sm,
+        .form-horizontal .form-group-sm input.form-control[type="datetime-local"],
+        .input-group-sm>input.form-control[type="datetime-local"],
+        .input-group-sm>input.input-group-addon[type="datetime-local"],
+        .input-group-sm>.input-group-btn>input.btn[type="datetime-local"],
+        input[type="month"].input-sm,
+        .form-horizontal .form-group-sm input.form-control[type="month"],
+        .input-group-sm>input.form-control[type="month"],
+        .input-group-sm>input.input-group-addon[type="month"],
+        .input-group-sm>.input-group-btn>input.btn[type="month"] {
+            line-height: 30px
+        }
+
+        input[type="date"].input-lg,
+        .form-horizontal .form-group-lg input.form-control[type="date"],
+        .input-group-lg>input.form-control[type="date"],
+        .input-group-lg>input.input-group-addon[type="date"],
+        .input-group-lg>.input-group-btn>input.btn[type="date"],
+        input[type="time"].input-lg,
+        .form-horizontal .form-group-lg input.form-control[type="time"],
+        .input-group-lg>input.form-control[type="time"],
+        .input-group-lg>input.input-group-addon[type="time"],
+        .input-group-lg>.input-group-btn>input.btn[type="time"],
+        input[type="datetime-local"].input-lg,
+        .form-horizontal .form-group-lg input.form-control[type="datetime-local"],
+        .input-group-lg>input.form-control[type="datetime-local"],
+        .input-group-lg>input.input-group-addon[type="datetime-local"],
+        .input-group-lg>.input-group-btn>input.btn[type="datetime-local"],
+        input[type="month"].input-lg,
+        .form-horizontal .form-group-lg input.form-control[type="month"],
+        .input-group-lg>input.form-control[type="month"],
+        .input-group-lg>input.input-group-addon[type="month"],
+        .input-group-lg>.input-group-btn>input.btn[type="month"] {
+            line-height: 46px
+        }
+
+        .form-group {
+            margin-bottom: 15px
+        }
+
+        .radio,
+        .checkbox {
+            position: relative;
+            display: block;
+            min-height: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px
+        }
+
+        .radio label,
+        .checkbox label {
+            padding-left: 20px;
+            margin-bottom: 0;
+            font-weight: 400;
+            cursor: pointer
+        }
+
+        .radio input[type="radio"],
+        .radio-inline input[type="radio"],
+        .checkbox input[type="checkbox"],
+        .checkbox-inline input[type="checkbox"] {
+            position: absolute;
+            margin-left: -20px;
+            margin-top: 4px \9
+        }
+
+        .radio+.radio,
+        .checkbox+.checkbox {
+            margin-top: -5px
+        }
+
+        .radio-inline,
+        .checkbox-inline {
+            display: inline-block;
+            padding-left: 20px;
+            margin-bottom: 0;
+            vertical-align: middle;
+            font-weight: 400;
+            cursor: pointer
+        }
+
+        .radio-inline+.radio-inline,
+        .checkbox-inline+.checkbox-inline {
+            margin-top: 0;
+            margin-left: 10px
+        }
+
+        input[type="radio"][disabled],
+        input[type="radio"].disabled,
+        fieldset[disabled] input[type="radio"],
+        input[type="checkbox"][disabled],
+        input[type="checkbox"].disabled,
+        fieldset[disabled] input[type="checkbox"],
+        .radio-inline.disabled,
+        fieldset[disabled] .radio-inline,
+        .checkbox-inline.disabled,
+        fieldset[disabled] .checkbox-inline,
+        .radio.disabled label,
+        fieldset[disabled] .radio label,
+        .checkbox.disabled label,
+        fieldset[disabled] .checkbox label {
+            cursor: not-allowed
+        }
+
+        .form-control-static {
+            padding-top: 7px;
+            padding-bottom: 7px;
+            margin-bottom: 0
+        }
+
+        .form-control-static.input-lg,
+        .form-horizontal .form-group-lg .form-control-static.form-control,
+        .input-group-lg>.form-control-static.form-control,
+        .input-group-lg>.form-control-static.input-group-addon,
+        .input-group-lg>.input-group-btn>.form-control-static.btn,
+        .form-control-static.input-sm,
+        .form-horizontal .form-group-sm .form-control-static.form-control,
+        .input-group-sm>.form-control-static.form-control,
+        .input-group-sm>.form-control-static.input-group-addon,
+        .input-group-sm>.input-group-btn>.form-control-static.btn {
+            padding-left: 0;
+            padding-right: 0
+        }
+
+        .input-sm,
+        .form-horizontal .form-group-sm .form-control,
+        .input-group-sm>.form-control {
+            height: 30px;
+            padding: 5px 10px;
+            font-size: 12px;
+            line-height: 1.5;
+            border-radius: 3px
+        }
+
+        .input-group-sm>.input-group-addon {
+            height: 30px;
+            line-height: 1.5
+        }
+
+        .input-group-sm>.input-group-btn>.btn {
+            height: 30px;
+            padding: 5px 10px;
+            font-size: 12px;
+            line-height: 1.5;
+            border-radius: 3px
+        }
+
+        select.input-sm,
+        .form-horizontal .form-group-sm select.form-control,
+        .input-group-sm>select.form-control,
+        .input-group-sm>select.input-group-addon,
+        .input-group-sm>.input-group-btn>select.btn {
+            height: 30px;
+            line-height: 30px
+        }
+
+        textarea.input-sm,
+        .form-horizontal .form-group-sm textarea.form-control,
+        .input-group-sm>textarea.form-control,
+        .input-group-sm>textarea.input-group-addon,
+        .input-group-sm>.input-group-btn>textarea.btn,
+        select[multiple].input-sm,
+        .form-horizontal .form-group-sm select.form-control[multiple],
+        .input-group-sm>select.form-control[multiple],
+        .input-group-sm>select.input-group-addon[multiple],
+        .input-group-sm>.input-group-btn>select.btn[multiple] {
+            height: auto
+        }
+
+        .input-lg,
+        .form-horizontal .form-group-lg .form-control,
+        .input-group-lg>.form-control {
+            height: 46px;
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 1.33;
+            border-radius: 6px
+        }
+
+        .input-group-lg>.input-group-addon {
+            height: 46px;
+            line-height: 1.33
+        }
+
+        .input-group-lg>.input-group-btn>.btn {
+            height: 46px;
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 1.33;
+            border-radius: 6px
+        }
+
+        select.input-lg,
+        .form-horizontal .form-group-lg select.form-control,
+        .input-group-lg>select.form-control,
+        .input-group-lg>select.input-group-addon,
+        .input-group-lg>.input-group-btn>select.btn {
+            height: 46px;
+            line-height: 46px
+        }
+
+        textarea.input-lg,
+        .form-horizontal .form-group-lg textarea.form-control,
+        .input-group-lg>textarea.form-control,
+        .input-group-lg>textarea.input-group-addon,
+        .input-group-lg>.input-group-btn>textarea.btn,
+        select[multiple].input-lg,
+        .form-horizontal .form-group-lg select.form-control[multiple],
+        .input-group-lg>select.form-control[multiple],
+        .input-group-lg>select.input-group-addon[multiple],
+        .input-group-lg>.input-group-btn>select.btn[multiple] {
+            height: auto
+        }
+
+        .has-feedback {
+            position: relative
+        }
+
+        .has-feedback .form-control {
+            padding-right: 42.5px
+        }
+
+        .form-control-feedback {
+            position: absolute;
+            top: 25px;
+            right: 0;
+            z-index: 2;
+            display: block;
+            width: 34px;
+            height: 34px;
+            line-height: 34px;
+            text-align: center
+        }
+
+        .input-lg+.form-control-feedback,
+        .form-horizontal .form-group-lg .form-control+.form-control-feedback,
+        .input-group-lg>.form-control+.form-control-feedback,
+        .input-group-lg>.input-group-addon+.form-control-feedback,
+        .input-group-lg>.input-group-btn>.btn+.form-control-feedback {
+            width: 46px;
+            height: 46px;
+            line-height: 46px
+        }
+
+        .input-sm+.form-control-feedback,
+        .form-horizontal .form-group-sm .form-control+.form-control-feedback,
+        .input-group-sm>.form-control+.form-control-feedback,
+        .input-group-sm>.input-group-addon+.form-control-feedback,
+        .input-group-sm>.input-group-btn>.btn+.form-control-feedback {
+            width: 30px;
+            height: 30px;
+            line-height: 30px
+        }
+
+        .has-success .help-block,
+        .has-success .control-label,
+        .has-success .radio,
+        .has-success .checkbox,
+        .has-success .radio-inline,
+        .has-success .checkbox-inline {
+            color: #3c763d
+        }
+
+        .has-success .form-control {
+            border-color: #3c763d;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075)
+        }
+
+        .has-success .form-control:focus {
+            border-color: #2b542c;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168
+        }
+
+        .has-success .input-group-addon {
+            color: #3c763d;
+            border-color: #3c763d;
+            background-color: #dff0d8
+        }
+
+        .has-success .form-control-feedback {
+            color: #3c763d
+        }
+
+        .has-warning .help-block,
+        .has-warning .control-label,
+        .has-warning .radio,
+        .has-warning .checkbox,
+        .has-warning .radio-inline,
+        .has-warning .checkbox-inline {
+            color: #8a6d3b
+        }
+
+        .has-warning .form-control {
+            border-color: #8a6d3b;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075)
+        }
+
+        .has-warning .form-control:focus {
+            border-color: #66512c;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #c0a16b
+        }
+
+        .has-warning .input-group-addon {
+            color: #8a6d3b;
+            border-color: #8a6d3b;
+            background-color: #fcf8e3
+        }
+
+        .has-warning .form-control-feedback {
+            color: #8a6d3b
+        }
+
+        .has-error .help-block,
+        .has-error .control-label,
+        .has-error .radio,
+        .has-error .checkbox,
+        .has-error .radio-inline,
+        .has-error .checkbox-inline {
+            color: #a94442
+        }
+
+        .has-error .form-control {
+            border-color: #a94442;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075)
+        }
+
+        .has-error .form-control:focus {
+            border-color: #843534;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483
+        }
+
+        .has-error .input-group-addon {
+            color: #a94442;
+            border-color: #a94442;
+            background-color: #f2dede
+        }
+
+        .has-error .form-control-feedback {
+            color: #a94442
+        }
+
+        .has-feedback label.sr-only~.form-control-feedback {
+            top: 0
+        }
+
+        .help-block {
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            color: #737373
+        }
+
+        .form-horizontal .radio,
+        .form-horizontal .checkbox,
+        .form-horizontal .radio-inline,
+        .form-horizontal .checkbox-inline {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-top: 7px
+        }
+
+        .form-horizontal .radio,
+        .form-horizontal .checkbox {
+            min-height: 27px
+        }
+
+        .form-horizontal .form-group {
+            margin-left: -15px;
+            margin-right: -15px
+        }
+
+        .form-horizontal .form-group:before {
+            content: " ";
+            display: table
+        }
+
+        .form-horizontal .form-group:after {
+            content: " ";
+            display: table;
+            clear: both
+        }
+
+        .form-horizontal .has-feedback .form-control-feedback {
+            top: 0;
+            right: 15px
+        }
+
+        .btn {
+            display: inline-block;
+            vertical-align: middle;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+        .btn:focus,
+        .btn:active:focus,
+        .btn.active:focus {
+            outline: thin dotted;
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px
+        }
+
+        .btn:hover,
+        .btn:focus {
+            color: #333;
+            text-decoration: none
+        }
+
+        .btn:active,
+        .btn.active {
+            outline: 0;
+            background-image: none;
+            box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125)
+        }
+
+        .btn.disabled,
+        .btn[disabled],
+        fieldset[disabled] .btn {
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: .65;
+            filter: alpha(opacity=65);
+            box-shadow: none
+        }
+
+        .btn-default {
+            color: #333;
+            background-color: #fff;
+            border-color: #ccc
+        }
+
+        .btn-default:hover,
+        .btn-default:focus,
+        .btn-default:active,
+        .btn-default.active,
+        .open>.btn-default.dropdown-toggle {
+            color: #333;
+            background-color: #e6e6e6;
+            border-color: #adadad
+        }
+
+        .btn-default:active,
+        .btn-default.active,
+        .open>.btn-default.dropdown-toggle {
+            background-image: none
+        }
+
+        .btn-default.disabled,
+        .btn-default.disabled:hover,
+        .btn-default.disabled:focus,
+        .btn-default.disabled:active,
+        .btn-default.disabled.active,
+        .btn-default[disabled],
+        .btn-default[disabled]:hover,
+        .btn-default[disabled]:focus,
+        .btn-default[disabled]:active,
+        .btn-default[disabled].active,
+        fieldset[disabled] .btn-default,
+        fieldset[disabled] .btn-default:hover,
+        fieldset[disabled] .btn-default:focus,
+        fieldset[disabled] .btn-default:active,
+        fieldset[disabled] .btn-default.active {
+            background-color: #fff;
+            border-color: #ccc
+        }
+
+        .btn-default .badge {
+            color: #fff;
+            background-color: #333
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #428bca;
+            border-color: #357ebd
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus,
+        .btn-primary:active,
+        .btn-primary.active,
+        .open>.btn-primary.dropdown-toggle {
+            color: #fff;
+            background-color: #3071a9;
+            border-color: #285e8e
+        }
+
+        .btn-primary:active,
+        .btn-primary.active,
+        .open>.btn-primary.dropdown-toggle {
+            background-image: none
+        }
+
+        .btn-primary.disabled,
+        .btn-primary.disabled:hover,
+        .btn-primary.disabled:focus,
+        .btn-primary.disabled:active,
+        .btn-primary.disabled.active,
+        .btn-primary[disabled],
+        .btn-primary[disabled]:hover,
+        .btn-primary[disabled]:focus,
+        .btn-primary[disabled]:active,
+        .btn-primary[disabled].active,
+        fieldset[disabled] .btn-primary,
+        fieldset[disabled] .btn-primary:hover,
+        fieldset[disabled] .btn-primary:focus,
+        fieldset[disabled] .btn-primary:active,
+        fieldset[disabled] .btn-primary.active {
+            background-color: #428bca;
+            border-color: #357ebd
+        }
+
+        .btn-primary .badge {
+            color: #428bca;
+            background-color: #fff
+        }
+
+        .btn-success {
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c
+        }
+
+        .btn-success:hover,
+        .btn-success:focus,
+        .btn-success:active,
+        .btn-success.active,
+        .open>.btn-success.dropdown-toggle {
+            color: #fff;
+            background-color: #449d44;
+            border-color: #398439
+        }
+
+        .btn-success:active,
+        .btn-success.active,
+        .open>.btn-success.dropdown-toggle {
+            background-image: none
+        }
+
+        .btn-success.disabled,
+        .btn-success.disabled:hover,
+        .btn-success.disabled:focus,
+        .btn-success.disabled:active,
+        .btn-success.disabled.active,
+        .btn-success[disabled],
+        .btn-success[disabled]:hover,
+        .btn-success[disabled]:focus,
+        .btn-success[disabled]:active,
+        .btn-success[disabled].active,
+        fieldset[disabled] .btn-success,
+        fieldset[disabled] .btn-success:hover,
+        fieldset[disabled] .btn-success:focus,
+        fieldset[disabled] .btn-success:active,
+        fieldset[disabled] .btn-success.active {
+            background-color: #5cb85c;
+            border-color: #4cae4c
+        }
+
+        .btn-success .badge {
+            color: #5cb85c;
+            background-color: #fff
+        }
+
+        .btn-info {
+            color: #fff;
+            background-color: #5bc0de;
+            border-color: #46b8da
+        }
+
+        .btn-info:hover,
+        .btn-info:focus,
+        .btn-info:active,
+        .btn-info.active,
+        .open>.btn-info.dropdown-toggle {
+            color: #fff;
+            background-color: #31b0d5;
+            border-color: #269abc
+        }
+
+        .btn-info:active,
+        .btn-info.active,
+        .open>.btn-info.dropdown-toggle {
+            background-image: none
+        }
+
+        .btn-info.disabled,
+        .btn-info.disabled:hover,
+        .btn-info.disabled:focus,
+        .btn-info.disabled:active,
+        .btn-info.disabled.active,
+        .btn-info[disabled],
+        .btn-info[disabled]:hover,
+        .btn-info[disabled]:focus,
+        .btn-info[disabled]:active,
+        .btn-info[disabled].active,
+        fieldset[disabled] .btn-info,
+        fieldset[disabled] .btn-info:hover,
+        fieldset[disabled] .btn-info:focus,
+        fieldset[disabled] .btn-info:active,
+        fieldset[disabled] .btn-info.active {
+            background-color: #5bc0de;
+            border-color: #46b8da
+        }
+
+        .btn-info .badge {
+            color: #5bc0de;
+            background-color: #fff
+        }
+
+        .btn-warning {
+            color: #fff;
+            background-color: #f0ad4e;
+            border-color: #eea236
+        }
+
+        .btn-warning:hover,
+        .btn-warning:focus,
+        .btn-warning:active,
+        .btn-warning.active,
+        .open>.btn-warning.dropdown-toggle {
+            color: #fff;
+            background-color: #ec971f;
+            border-color: #d58512
+        }
+
+        .btn-warning:active,
+        .btn-warning.active,
+        .open>.btn-warning.dropdown-toggle {
+            background-image: none
+        }
+
+        .btn-warning.disabled,
+        .btn-warning.disabled:hover,
+        .btn-warning.disabled:focus,
+        .btn-warning.disabled:active,
+        .btn-warning.disabled.active,
+        .btn-warning[disabled],
+        .btn-warning[disabled]:hover,
+        .btn-warning[disabled]:focus,
+        .btn-warning[disabled]:active,
+        .btn-warning[disabled].active,
+        fieldset[disabled] .btn-warning,
+        fieldset[disabled] .btn-warning:hover,
+        fieldset[disabled] .btn-warning:focus,
+        fieldset[disabled] .btn-warning:active,
+        fieldset[disabled] .btn-warning.active {
+            background-color: #f0ad4e;
+            border-color: #eea236
+        }
+
+        .btn-warning .badge {
+            color: #f0ad4e;
+            background-color: #fff
+        }
+
+        .btn-danger {
+            color: #fff;
+            background-color: #d9534f;
+            border-color: #d43f3a
+        }
+
+        .btn-danger:hover,
+        .btn-danger:focus,
+        .btn-danger:active,
+        .btn-danger.active,
+        .open>.btn-danger.dropdown-toggle {
+            color: #fff;
+            background-color: #c9302c;
+            border-color: #ac2925
+        }
+
+        .btn-danger:active,
+        .btn-danger.active,
+        .open>.btn-danger.dropdown-toggle {
+            background-image: none
+        }
+
+        .btn-danger.disabled,
+        .btn-danger.disabled:hover,
+        .btn-danger.disabled:focus,
+        .btn-danger.disabled:active,
+        .btn-danger.disabled.active,
+        .btn-danger[disabled],
+        .btn-danger[disabled]:hover,
+        .btn-danger[disabled]:focus,
+        .btn-danger[disabled]:active,
+        .btn-danger[disabled].active,
+        fieldset[disabled] .btn-danger,
+        fieldset[disabled] .btn-danger:hover,
+        fieldset[disabled] .btn-danger:focus,
+        fieldset[disabled] .btn-danger:active,
+        fieldset[disabled] .btn-danger.active {
+            background-color: #d9534f;
+            border-color: #d43f3a
+        }
+
+        .btn-danger .badge {
+            color: #d9534f;
+            background-color: #fff
+        }
+
+        .btn-link {
+            color: #428bca;
+            font-weight: 400;
+            cursor: pointer;
+            border-radius: 0
+        }
+
+        .btn-link,
+        .btn-link:active,
+        .btn-link[disabled],
+        fieldset[disabled] .btn-link {
+            background-color: transparent;
+            box-shadow: none
+        }
+
+        .btn-link,
+        .btn-link:hover,
+        .btn-link:focus,
+        .btn-link:active {
+            border-color: transparent
+        }
+
+        .btn-link:hover,
+        .btn-link:focus {
+            color: #2a6496;
+            text-decoration: underline;
+            background-color: transparent
+        }
+
+        .btn-link[disabled]:hover,
+        .btn-link[disabled]:focus,
+        fieldset[disabled] .btn-link:hover,
+        fieldset[disabled] .btn-link:focus {
+            color: #777;
+            text-decoration: none
+        }
+
+        .btn-lg {
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 1.33;
+            border-radius: 6px
+        }
+
+        .btn-sm {
+            padding: 5px 10px
+        }
+
+        .btn-sm,
+        .btn-xs {
+            font-size: 12px;
+            line-height: 1.5;
+            border-radius: 3px
+        }
+
+        .btn-xs {
+            padding: 1px 5px
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%
+        }
+
+        .btn-block+.btn-block {
+            margin-top: 5px
+        }
+
+        input[type="submit"].btn-block,
+        input[type="reset"].btn-block,
+        input[type="button"].btn-block {
+            width: 100%
+        }
+
+        .fade {
+            opacity: 0;
+            transition: opacity .15s linear
+        }
+
+        .fade.in {
+            opacity: 1
+        }
+
+        .collapse {
+            display: none
+        }
+
+        .collapse.in {
+            display: block
+        }
+
+        tr.collapse.in {
+            display: table-row
+        }
+
+        tbody.collapse.in {
+            display: table-row-group
+        }
+
+        .collapsing {
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            transition: height .35s ease
+        }
+
+        .input-group {
+            position: relative;
+            display: table;
+            border-collapse: separate
+        }
+
+        .input-group[class*="col-"] {
+            float: none;
+            padding-left: 0;
+            padding-right: 0
+        }
+
+        .input-group .form-control {
+            position: relative;
+            z-index: 2;
+            float: left;
+            width: 100%;
+            margin-bottom: 0
+        }
+
+        .input-group-addon,
+        .input-group-btn,
+        .input-group .form-control {
+            display: table-cell
+        }
+
+        .input-group-addon:not(:first-child):not(:last-child),
+        .input-group-btn:not(:first-child):not(:last-child),
+        .input-group .form-control:not(:first-child):not(:last-child) {
+            border-radius: 0
+        }
+
+        .input-group-addon {
+            white-space: nowrap
+        }
+
+        .input-group-addon,
+        .input-group-btn {
+            width: 1%;
+            vertical-align: middle
+        }
+
+        .input-group-addon {
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1;
+            color: #555;
+            text-align: center;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 4px
+        }
+
+        .input-group-addon.input-sm,
+        .form-horizontal .form-group-sm .input-group-addon.form-control,
+        .input-group-sm>.input-group-addon,
+        .input-group-sm>.input-group-btn>.input-group-addon.btn {
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 3px
+        }
+
+        .input-group-addon.input-lg,
+        .form-horizontal .form-group-lg .input-group-addon.form-control,
+        .input-group-lg>.input-group-addon,
+        .input-group-lg>.input-group-btn>.input-group-addon.btn {
+            padding: 10px 16px;
+            font-size: 18px;
+            border-radius: 6px
+        }
+
+        .input-group-addon input[type="radio"],
+        .input-group-addon input[type="checkbox"] {
+            margin-top: 0
+        }
+
+        .input-group .form-control:first-child,
+        .input-group-addon:first-child,
+        .input-group-btn:first-child>.btn,
+        .input-group-btn:first-child>.btn-group>.btn,
+        .input-group-btn:first-child>.dropdown-toggle,
+        .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle),
+        .input-group-btn:last-child>.btn-group:not(:last-child)>.btn {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0
+        }
+
+        .input-group-addon:first-child {
+            border-right: 0
+        }
+
+        .input-group .form-control:last-child,
+        .input-group-addon:last-child,
+        .input-group-btn:last-child>.btn,
+        .input-group-btn:last-child>.btn-group>.btn,
+        .input-group-btn:last-child>.dropdown-toggle,
+        .input-group-btn:first-child>.btn:not(:first-child),
+        .input-group-btn:first-child>.btn-group:not(:first-child)>.btn {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0
+        }
+
+        .input-group-addon:last-child {
+            border-left: 0
+        }
+
+        .input-group-btn {
+            font-size: 0;
+            white-space: nowrap
+        }
+
+        .input-group-btn,
+        .input-group-btn>.btn {
+            position: relative
+        }
+
+        .input-group-btn>.btn+.btn {
+            margin-left: -1px
+        }
+
+        .input-group-btn>.btn:hover,
+        .input-group-btn>.btn:focus,
+        .input-group-btn>.btn:active {
+            z-index: 2
+        }
+
+        .input-group-btn:first-child>.btn,
+        .input-group-btn:first-child>.btn-group {
+            margin-right: -1px
+        }
+
+        .input-group-btn:last-child>.btn,
+        .input-group-btn:last-child>.btn-group {
+            margin-left: -1px
+        }
+
+        .pagination {
+            display: inline-block;
+            padding-left: 0;
+            margin: 20px 0;
+            border-radius: 4px
+        }
+
+        .pagination>li {
+            display: inline
+        }
+
+        .pagination>li>a,
+        .pagination>li>span {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            line-height: 1.4285714;
+            text-decoration: none;
+            color: #428bca;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-left: -1px
+        }
+
+        .pagination>li:first-child>a,
+        .pagination>li:first-child>span {
+            margin-left: 0;
+            border-bottom-left-radius: 4px;
+            border-top-left-radius: 4px
+        }
+
+        .pagination>li:last-child>a,
+        .pagination>li:last-child>span {
+            border-bottom-right-radius: 4px;
+            border-top-right-radius: 4px
+        }
+
+        .pagination>li>a:hover,
+        .pagination>li>a:focus,
+        .pagination>li>span:hover,
+        .pagination>li>span:focus {
+            color: #2a6496;
+            background-color: #eee;
+            border-color: #ddd
+        }
+
+        .pagination>.active>a,
+        .pagination>.active>a:hover,
+        .pagination>.active>a:focus,
+        .pagination>.active>span,
+        .pagination>.active>span:hover,
+        .pagination>.active>span:focus {
+            z-index: 2;
+            color: #fff;
+            background-color: #428bca;
+            border-color: #428bca;
+            cursor: default
+        }
+
+        .pagination>.disabled>span,
+        .pagination>.disabled>span:hover,
+        .pagination>.disabled>span:focus,
+        .pagination>.disabled>a,
+        .pagination>.disabled>a:hover,
+        .pagination>.disabled>a:focus {
+            color: #777;
+            background-color: #fff;
+            border-color: #ddd;
+            cursor: not-allowed
+        }
+
+        .pagination-lg>li>a,
+        .pagination-lg>li>span {
+            padding: 10px 16px;
+            font-size: 18px
+        }
+
+        .pagination-lg>li:first-child>a,
+        .pagination-lg>li:first-child>span {
+            border-bottom-left-radius: 6px;
+            border-top-left-radius: 6px
+        }
+
+        .pagination-lg>li:last-child>a,
+        .pagination-lg>li:last-child>span {
+            border-bottom-right-radius: 6px;
+            border-top-right-radius: 6px
+        }
+
+        .pagination-sm>li>a,
+        .pagination-sm>li>span {
+            padding: 5px 10px;
+            font-size: 12px
+        }
+
+        .pagination-sm>li:first-child>a,
+        .pagination-sm>li:first-child>span {
+            border-bottom-left-radius: 3px;
+            border-top-left-radius: 3px
+        }
+
+        .pagination-sm>li:last-child>a,
+        .pagination-sm>li:last-child>span {
+            border-bottom-right-radius: 3px;
+            border-top-right-radius: 3px
+        }
+
+        .close {
+            float: right;
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            opacity: .2;
+            filter: alpha(opacity=20)
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+            opacity: .5;
+            filter: alpha(opacity=50)
+        }
+
+        button.close {
+            padding: 0;
+            cursor: pointer;
+            background: 0 0;
+            border: 0;
+            -webkit-appearance: none
+        }
+
+        .modal-open,
+        .modal {
+            overflow: hidden
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1050;
+            -webkit-overflow-scrolling: touch;
+            outline: 0
+        }
+
+        .modal.fade .modal-dialog {
+            transform: translate3d(0, -25%, 0);
+            transition: transform .3s ease-out
+        }
+
+        .modal.in .modal-dialog {
+            transform: translate3d(0, 0, 0)
+        }
+
+        .modal-open .modal {
+            overflow-x: hidden;
+            overflow-y: auto
+        }
+
+        .modal-dialog {
+            position: relative;
+            width: auto;
+            margin: 10px
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            border: 1px solid #999;
+            border: 1px solid rgba(0, 0, 0, .2);
+            border-radius: 6px;
+            box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+            background-clip: padding-box;
+            outline: 0
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1040;
+            background-color: #000
+        }
+
+        .modal-backdrop.fade {
+            opacity: 0;
+            filter: alpha(opacity=0)
+        }
+
+        .modal-backdrop.in {
+            opacity: .5;
+            filter: alpha(opacity=50)
+        }
+
+        .modal-header {
+            padding: 15px;
+            border-bottom: 1px solid #e5e5e5;
+            min-height: 16.4285714px
+        }
+
+        .modal-header .close {
+            margin-top: -2px
+        }
+
+        .modal-title {
+            margin: 0;
+            line-height: 1.4285714
+        }
+
+        .modal-body {
+            position: relative;
+            padding: 15px
+        }
+
+        .modal-footer {
+            padding: 15px;
+            text-align: right;
+            border-top: 1px solid #e5e5e5
+        }
+
+        .modal-footer:before,
+        .modal-footer:after {
+            content: " ";
+            display: table
+        }
+
+        .modal-footer:after {
+            clear: both
+        }
+
+        .modal-footer .btn+.btn {
+            margin-left: 5px;
+            margin-bottom: 0
+        }
+
+        .modal-footer .btn-group .btn+.btn {
+            margin-left: -1px
+        }
+
+        .modal-footer .btn-block+.btn-block {
+            margin-left: 0
+        }
+
+        .modal-scrollbar-measure {
+            position: absolute;
+            top: -9999px;
+            width: 50px;
+            height: 50px;
+            overflow: scroll
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            content: " ";
+            display: table
+        }
+
+        .clearfix:after {
+            clear: both
+        }
+
+        .center-block {
+            display: block;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .pull-right {
+            float: right !important
+        }
+
+        .pull-left {
+            float: left !important
+        }
+
+        .hide {
+            display: none !important
+        }
+
+        .show {
+            display: block !important
+        }
+
+        .invisible {
+            visibility: hidden
+        }
+
+        .text-hide {
+            font: 0/0 a;
+            color: transparent;
+            text-shadow: none;
+            background-color: transparent;
+            border: 0
+        }
+
+        .hidden {
+            display: none !important;
+            visibility: hidden !important
+        }
+
+        .affix {
+            position: fixed;
+            transform: translate3d(0, 0, 0)
+        }
+
+        .hljs {
+            display: block;
+            overflow-x: auto;
+            padding: .5em;
+            background: #002b36;
+            color: #839496;
+            -webkit-text-size-adjust: none
+        }
+
+        .hljs-comment,
+        .hljs-template_comment,
+        .diff .hljs-header,
+        .hljs-doctype,
+        .hljs-pi,
+        .lisp .hljs-string,
+        .hljs-javadoc {
+            color: #586e75
+        }
+
+        .hljs-keyword,
+        .hljs-winutils,
+        .method,
+        .hljs-addition,
+        .css .hljs-tag,
+        .hljs-request,
+        .hljs-status,
+        .nginx .hljs-title {
+            color: #859900
+        }
+
+        .hljs-number,
+        .hljs-command,
+        .hljs-string,
+        .hljs-tag .hljs-value,
+        .hljs-rules .hljs-value,
+        .hljs-phpdoc,
+        .hljs-dartdoc,
+        .tex .hljs-formula,
+        .hljs-regexp,
+        .hljs-hexcolor,
+        .hljs-link_url {
+            color: #2aa198
+        }
+
+        .hljs-title,
+        .hljs-localvars,
+        .hljs-chunk,
+        .hljs-decorator,
+        .hljs-built_in,
+        .hljs-identifier,
+        .vhdl .hljs-literal,
+        .hljs-id,
+        .css .hljs-function {
+            color: #268bd2
+        }
+
+        .hljs-attribute,
+        .hljs-variable,
+        .lisp .hljs-body,
+        .smalltalk .hljs-number,
+        .hljs-constant,
+        .hljs-class .hljs-title,
+        .hljs-parent,
+        .hljs-type,
+        .hljs-link_reference {
+            color: #b58900
+        }
+
+        .hljs-preprocessor,
+        .hljs-preprocessor .hljs-keyword,
+        .hljs-pragma,
+        .hljs-shebang,
+        .hljs-symbol,
+        .hljs-symbol .hljs-string,
+        .diff .hljs-change,
+        .hljs-special,
+        .hljs-attr_selector,
+        .hljs-subst,
+        .hljs-cdata,
+        .css .hljs-pseudo,
+        .hljs-header {
+            color: #cb4b16
+        }
+
+        .hljs-deletion,
+        .hljs-important {
+            color: #dc322f
+        }
+
+        .hljs-link_label {
+            color: #6c71c4
+        }
+
+        .tex .hljs-formula {
+            background: #073642
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box
+        }
+
+        html {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        main,
+        nav,
+        section,
+        summary {
+            display: block
+        }
+
+        audio,
+        canvas,
+        progress,
+        video {
+            display: inline-block;
+            vertical-align: baseline
+        }
+
+        audio:not([controls]) {
+            display: none;
+            height: 0
+        }
+
+        [hidden],
+        template {
+            display: none
+        }
+
+        a {
+            background: 0 0
+        }
+
+        a:active,
+        a:hover {
+            outline: 0
+        }
+
+        abbr[title] {
+            border-bottom: 1px dotted
+        }
+
+        b,
+        strong {
+            font-weight: 700
+        }
+
+        dfn {
+            font-style: italic
+        }
+
+        h1 {
+            margin: .67em 0
+        }
+
+        mark {
+            background: #ff0;
+            color: #000
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        images {
+            border: 0
+        }
+
+        svg:not(:root) {
+            overflow: hidden
+        }
+
+        figure {
+            margin: 1em 40px
+        }
+
+        hr {
+            box-sizing: content-box;
+            height: 0
+        }
+
+        pre {
+            overflow: auto
+        }
+
+        code,
+        kbd {
+            font-size: 1em
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: monospace, monospace
+        }
+
+        samp {
+            font-size: 1em
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            color: inherit;
+            font: inherit;
+            margin: 0
+        }
+
+        button {
+            overflow: visible
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        button,
+        html input[type="button"],
+        input[type="reset"],
+        input[type="submit"] {
+            -webkit-appearance: button;
+            cursor: pointer
+        }
+
+        button[disabled],
+        html input[disabled] {
+            cursor: default
+        }
+
+        button::-moz-focus-inner,
+        input::-moz-focus-inner {
+            border: 0;
+            padding: 0
+        }
+
+        input {
+            line-height: normal
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            box-sizing: border-box;
+            padding: 0;
+            margin-right: 5px
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        input[type="search"] {
+            -webkit-appearance: textfield;
+            box-sizing: content-box
+        }
+
+        input[type="search"]::-webkit-search-cancel-button,
+        input[type="search"]::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        fieldset {
+            border: 1px solid silver;
+            margin: 0 2px;
+            padding: .35em .625em .75em
+        }
+
+        legend {
+            border: 0;
+            padding: 0
+        }
+
+        textarea {
+            overflow: auto
+        }
+
+        optgroup {
+            font-weight: 700
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0
+        }
+
+        .debug {
+            background-color: #ffc0cb !important
+        }
+
+        .ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        .ir {
+            background-color: transparent;
+            border: 0;
+            overflow: hidden
+        }
+
+        .ir::before {
+            content: '';
+            display: block;
+            height: 150%;
+            width: 0
+        }
+
+        html {
+            font-size: .875em;
+            background: #fff;
+            color: #373D49
+        }
+
+        html,
+        body {
+            font-family: Georgia, Cambria, serif;
+            height: 100%
+        }
+
+        body {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 2rem
+        }
+
+        ul,
+        ol {
+            margin-bottom: .83999rem;
+            padding-top: .16001rem
+        }
+
+        li {
+            font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+            margin-left: 1rem
+        }
+
+        li>ul,
+        li>ol {
+            margin-bottom: 0
+        }
+
+        p {
+            padding-top: .66001rem;
+            font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+            margin-top: 0
+        }
+
+        p,
+        pre {
+            margin-bottom: 1.33999rem
+        }
+
+        pre {
+            font-size: 1rem;
+            padding: .66001rem 9.5px 9.5px;
+            line-height: 2rem;
+            background: linear-gradient(to bottom, #fff 0, #fff .75rem, #f5f7fa .75rem, #f5f7fa 2.75rem, #fff 2.75rem, #fff 4rem);
+            background-size: 100% 4rem;
+            border-color: #D3DAEA
+        }
+
+        blockquote {
+            margin: 0
+        }
+
+        blockquote p {
+            font-size: 1rem;
+            margin-bottom: .33999rem;
+            font-style: italic;
+            padding: .66001rem 1rem 1rem;
+            border-left: 3px solid #A0AABF
+        }
+
+        th,
+        td {
+            padding: 12px
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
+            font-style: normal;
+            font-weight: 600;
+            margin-top: 0
+        }
+
+        h1 {
+            line-height: 3rem;
+            font-size: 2.0571429rem;
+            margin-bottom: .21999rem;
+            padding-top: .78001rem
+        }
+
+        h2 {
+            font-size: 1.953125rem;
+            margin-bottom: .1835837rem;
+            padding-top: .8164163rem
+        }
+
+        h2,
+        h3 {
+            line-height: 3rem
+        }
+
+        h3 {
+            font-size: 1.6457143rem;
+            margin-bottom: .07599rem;
+            padding-top: .92401rem
+        }
+
+        h4 {
+            font-size: 1.5625rem;
+            margin-bottom: .546865rem;
+            padding-top: .453135rem
+        }
+
+        h5 {
+            font-size: 1.25rem;
+            margin-bottom: -.56251rem;
+            padding-top: .56251rem
+        }
+
+        h6 {
+            font-size: 1rem;
+            margin-bottom: -.65001rem;
+            padding-top: .65001rem
+        }
+
+        a {
+            cursor: pointer;
+            color: #2800f0;
+            text-decoration: none
+        }
+
+        a:hover,
+        a:focus {
+            border-bottom-color: #35D7BB;
+            color: #dff9f4
+        }
+
+        img {
+            height: auto;
+            max-width: 100%
+        }
+
+        dt {
+            font-style: italic;
+            font-weight: 600
+        }
+
+        .g {
+            display: block
+        }
+
+        .g:after {
+            clear: both;
+            content: '';
+            display: table
+        }
+
+        .g-b {
+            float: left;
+            margin: 0;
+            width: 100%
+        }
+
+        .g {
+            margin-left: -16px;
+            margin-right: -16px
+        }
+
+        .g-b {
+            padding-left: 16px;
+            padding-right: 16px
+        }
+
+        .g-b--center {
+            display: block;
+            float: none;
+            margin: 0 auto
+        }
+
+        .g-b--right {
+            float: right
+        }
+
+        .g-b--1of1 {
+            width: 100%
+        }
+
+        .g-b--1of2,
+        .g-b--2of4,
+        .g-b--3of6,
+        .g-b--4of8,
+        .g-b--5of10,
+        .g-b--6of12 {
+            width: 50%
+        }
+
+        .g-b--1of3,
+        .g-b--2of6,
+        .g-b--4of12 {
+            width: 33.333%
+        }
+
+        .g-b--2of3,
+        .g-b--4of6,
+        .g-b--8of12 {
+            width: 66.666%
+        }
+
+        .g-b--1of4,
+        .g-b--2of8,
+        .g-b--3of12 {
+            width: 25%
+        }
+
+        .g-b--3of4,
+        .g-b--6of8,
+        .g-b--9of12 {
+            width: 75%
+        }
+
+        .g-b--1of5,
+        .g-b--2of10 {
+            width: 20%
+        }
+
+        .g-b--2of5,
+        .g-b--4of10 {
+            width: 40%
+        }
+
+        .g-b--3of5,
+        .g-b--6of10 {
+            width: 60%
+        }
+
+        .g-b--4of5,
+        .g-b--8of10 {
+            width: 80%
+        }
+
+        .g-b--1of6,
+        .g-b--2of12 {
+            width: 16.666%
+        }
+
+        .g-b--5of6,
+        .g-b--10of12 {
+            width: 83.333%
+        }
+
+        .g-b--1of8 {
+            width: 12.5%
+        }
+
+        .g-b--3of8 {
+            width: 37.5%
+        }
+
+        .g-b--5of8 {
+            width: 62.5%
+        }
+
+        .g-b--7of8 {
+            width: 87.5%
+        }
+
+        .g-b--1of10 {
+            width: 10%
+        }
+
+        .g-b--3of10 {
+            width: 30%
+        }
+
+        .g-b--7of10 {
+            width: 70%
+        }
+
+        .g-b--9of10 {
+            width: 90%
+        }
+
+        .g-b--1of12 {
+            width: 8.333%
+        }
+
+        .g-b--5of12 {
+            width: 41.666%
+        }
+
+        .g-b--7of12 {
+            width: 58.333%
+        }
+
+        .g-b--11of12 {
+            width: 91.666%
+        }
+
+        .g-b--push--1of1 {
+            margin-left: 100%
+        }
+
+        .g-b--push--1of2,
+        .g-b--push--2of4,
+        .g-b--push--3of6,
+        .g-b--push--4of8,
+        .g-b--push--5of10,
+        .g-b--push--6of12 {
+            margin-left: 50%
+        }
+
+        .g-b--push--1of3,
+        .g-b--push--2of6,
+        .g-b--push--4of12 {
+            margin-left: 33.333%
+        }
+
+        .g-b--push--2of3,
+        .g-b--push--4of6,
+        .g-b--push--8of12 {
+            margin-left: 66.666%
+        }
+
+        .g-b--push--1of4,
+        .g-b--push--2of8,
+        .g-b--push--3of12 {
+            margin-left: 25%
+        }
+
+        .g-b--push--3of4,
+        .g-b--push--6of8,
+        .g-b--push--9of12 {
+            margin-left: 75%
+        }
+
+        .g-b--push--1of5,
+        .g-b--push--2of10 {
+            margin-left: 20%
+        }
+
+        .g-b--push--2of5,
+        .g-b--push--4of10 {
+            margin-left: 40%
+        }
+
+        .g-b--push--3of5,
+        .g-b--push--6of10 {
+            margin-left: 60%
+        }
+
+        .g-b--push--4of5,
+        .g-b--push--8of10 {
+            margin-left: 80%
+        }
+
+        .g-b--push--1of6,
+        .g-b--push--2of12 {
+            margin-left: 16.666%
+        }
+
+        .g-b--push--5of6,
+        .g-b--push--10of12 {
+            margin-left: 83.333%
+        }
+
+        .g-b--push--1of8 {
+            margin-left: 12.5%
+        }
+
+        .g-b--push--3of8 {
+            margin-left: 37.5%
+        }
+
+        .g-b--push--5of8 {
+            margin-left: 62.5%
+        }
+
+        .g-b--push--7of8 {
+            margin-left: 87.5%
+        }
+
+        .g-b--push--1of10 {
+            margin-left: 10%
+        }
+
+        .g-b--push--3of10 {
+            margin-left: 30%
+        }
+
+        .g-b--push--7of10 {
+            margin-left: 70%
+        }
+
+        .g-b--push--9of10 {
+            margin-left: 90%
+        }
+
+        .g-b--push--1of12 {
+            margin-left: 8.333%
+        }
+
+        .g-b--push--5of12 {
+            margin-left: 41.666%
+        }
+
+        .g-b--push--7of12 {
+            margin-left: 58.333%
+        }
+
+        .g-b--push--11of12 {
+            margin-left: 91.666%
+        }
+
+        .g-b--pull--1of1 {
+            margin-right: 100%
+        }
+
+        .g-b--pull--1of2,
+        .g-b--pull--2of4,
+        .g-b--pull--3of6,
+        .g-b--pull--4of8,
+        .g-b--pull--5of10,
+        .g-b--pull--6of12 {
+            margin-right: 50%
+        }
+
+        .g-b--pull--1of3,
+        .g-b--pull--2of6,
+        .g-b--pull--4of12 {
+            margin-right: 33.333%
+        }
+
+        .g-b--pull--2of3,
+        .g-b--pull--4of6,
+        .g-b--pull--8of12 {
+            margin-right: 66.666%
+        }
+
+        .g-b--pull--1of4,
+        .g-b--pull--2of8,
+        .g-b--pull--3of12 {
+            margin-right: 25%
+        }
+
+        .g-b--pull--3of4,
+        .g-b--pull--6of8,
+        .g-b--pull--9of12 {
+            margin-right: 75%
+        }
+
+        .g-b--pull--1of5,
+        .g-b--pull--2of10 {
+            margin-right: 20%
+        }
+
+        .g-b--pull--2of5,
+        .g-b--pull--4of10 {
+            margin-right: 40%
+        }
+
+        .g-b--pull--3of5,
+        .g-b--pull--6of10 {
+            margin-right: 60%
+        }
+
+        .g-b--pull--4of5,
+        .g-b--pull--8of10 {
+            margin-right: 80%
+        }
+
+        .g-b--pull--1of6,
+        .g-b--pull--2of12 {
+            margin-right: 16.666%
+        }
+
+        .g-b--pull--5of6,
+        .g-b--pull--10of12 {
+            margin-right: 83.333%
+        }
+
+        .g-b--pull--1of8 {
+            margin-right: 12.5%
+        }
+
+        .g-b--pull--3of8 {
+            margin-right: 37.5%
+        }
+
+        .g-b--pull--5of8 {
+            margin-right: 62.5%
+        }
+
+        .g-b--pull--7of8 {
+            margin-right: 87.5%
+        }
+
+        .g-b--pull--1of10 {
+            margin-right: 10%
+        }
+
+        .g-b--pull--3of10 {
+            margin-right: 30%
+        }
+
+        .g-b--pull--7of10 {
+            margin-right: 70%
+        }
+
+        .g-b--pull--9of10 {
+            margin-right: 90%
+        }
+
+        .g-b--pull--1of12 {
+            margin-right: 8.333%
+        }
+
+        .g-b--pull--5of12 {
+            margin-right: 41.666%
+        }
+
+        .g-b--pull--7of12 {
+            margin-right: 58.333%
+        }
+
+        .g-b--pull--11of12 {
+            margin-right: 91.666%
+        }
+
+        .splashscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #373D49;
+            z-index: 22
+        }
+
+        .splashscreen-dillinger {
+            width: 260px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            padding-bottom: 3rem
+        }
+
+        .splashscreen p {
+            font-size: 1.25rem;
+            padding-top: .56251rem;
+            font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+            color: #FFF
+        }
+
+        .sp-center {
+            position: relative;
+            transform: translateY(-50%);
+            top: 50%
+        }
+
+        .open-menu>.wrapper {
+            overflow-x: hidden
+        }
+
+        .page {
+            margin: 0 auto;
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            transition: all .25s ease-in-out;
+            background-color: #fff;
+            padding-top: 51px;
+            will-change: left
+        }
+
+        .open-menu .page {
+            left: 270px
+        }
+
+        .title {
+            line-height: 1rem;
+            font-size: .8rem;
+            margin-bottom: .77999rem;
+            padding-top: .22001rem;
+            font-weight: 500;
+            color: #A0AABF;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding-left: 16px;
+            padding-right: 16px;
+            margin-top: 1rem
+        }
+
+        .split-preview .title {
+            padding-left: 0
+        }
+
+        .title-document {
+            line-height: 1rem;
+            font-size: 1.25rem;
+            margin-bottom: .89999rem;
+            padding-top: .10001rem;
+            font-weight: 400;
+            font-family: "Ubuntu Mono", Monaco;
+            color: #373D49;
+            padding-left: 16px;
+            padding-right: 16px;
+            width: 80%;
+            min-width: 300px;
+            outline: 0;
+            border: none
+        }
+
+        .icon {
+            display: block;
+            margin: 0 auto;
+            width: 36px;
+            height: 36px;
+            border-radius: 3px;
+            text-align: center
+        }
+
+        .icon svg {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .icon-preview {
+            background-color: #373D49;
+            line-height: 40px
+        }
+
+        .icon-preview svg {
+            width: 19px;
+            height: 12px
+        }
+
+        .icon-settings {
+            background-color: #373D49;
+            line-height: 44px
+        }
+
+        .icon-settings svg {
+            width: 18px;
+            height: 18px
+        }
+
+        .icon-link {
+            width: 16px;
+            height: 16px;
+            line-height: 1;
+            margin-right: 24px;
+            text-align: right
+        }
+
+        .navbar {
+            background-color: #373D49;
+            height: 51px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 6;
+            transition: all .25s ease-in-out;
+            will-change: left
+        }
+
+        .navbar:after {
+            content: "";
+            display: table;
+            clear: both
+        }
+
+        .open-menu .navbar {
+            left: 270px
+        }
+
+        .navbar-brand {
+            float: left;
+            margin: 0 0 0 24px;
+            padding: 0;
+            line-height: 42px
+        }
+
+        .navbar-brand svg {
+            width: 85px;
+            height: 11px
+        }
+
+        .nav-left {
+            float: left
+        }
+
+        .nav-right {
+            float: right
+        }
+
+        .nav-sidebar {
+            width: 100%
+        }
+
+        .menu {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .menu a {
+            border: 0;
+            color: #A0AABF;
+            font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            outline: none;
+            text-transform: uppercase
+        }
+
+        .menu a:hover {
+            color: #35D7BB
+        }
+
+        .menu .menu-item {
+            border: 0;
+            display: none;
+            float: left;
+            margin: 0;
+            position: relative
+        }
+
+        .menu .menu-item>a {
+            display: block;
+            font-size: 12px;
+            height: 51px;
+            letter-spacing: 1px;
+            line-height: 51px;
+            padding: 0 24px
+        }
+
+        .menu .menu-item--settings,
+        .menu .menu-item--preview,
+        .menu .menu-item--save-to.in-sidebar,
+        .menu .menu-item--import-from.in-sidebar,
+        .menu .menu-item--link-unlink.in-sidebar,
+        .menu .menu-item--documents.in-sidebar {
+            display: block
+        }
+
+        .menu .menu-item--documents {
+            padding-bottom: 1rem
+        }
+
+        .menu .menu-item.open>a {
+            background-color: #1D212A
+        }
+
+        .menu .menu-item-icon>a {
+            height: auto;
+            padding: 0
+        }
+
+        .menu .menu-item-icon:hover>a {
+            background-color: transparent
+        }
+
+        .menu .menu-link.open i {
+            background-color: #1D212A
+        }
+
+        .menu .menu-link.open g {
+            fill: #35D7BB
+        }
+
+        .menu .menu-link-preview,
+        .menu .menu-link-settings {
+            margin-top: 8px;
+            width: 51px
+        }
+
+        .menu-sidebar {
+            width: 100%
+        }
+
+        .menu-sidebar .menu-item {
+            float: none;
+            margin-bottom: 1px;
+            width: 100%
+        }
+
+        .menu-sidebar .menu-item.open>a {
+            background-color: #373D49
+        }
+
+        .menu-sidebar .open .caret {
+            transform: rotate(180deg)
+        }
+
+        .menu-sidebar>.menu-item:hover .dropdown a,
+        .menu-sidebar>.menu-item:hover .settings a {
+            background-color: transparent
+        }
+
+        .menu-sidebar .menu-link {
+            background-color: #373D49;
+            font-weight: 600
+        }
+
+        .menu-sidebar .menu-link:after {
+            content: "";
+            display: table;
+            clear: both
+        }
+
+        .menu-sidebar .menu-link>span {
+            float: left
+        }
+
+        .menu-sidebar .menu-link>.caret {
+            float: right;
+            text-align: right;
+            top: 22px
+        }
+
+        .menu-sidebar .dropdown,
+        .menu-sidebar .settings {
+            background-color: transparent;
+            position: static;
+            width: 100%
+        }
+
+        .dropdown {
+            position: absolute;
+            right: 0;
+            top: 51px;
+            width: 188px
+        }
+
+        .dropdown,
+        .settings {
+            display: none;
+            background-color: #1D212A
+        }
+
+        .dropdown {
+            padding: 0
+        }
+
+        .dropdown,
+        .settings,
+        .sidebar-list {
+            list-style: none;
+            margin: 0
+        }
+
+        .sidebar-list {
+            padding: 0
+        }
+
+        .dropdown li {
+            margin: 32px 0;
+            padding: 0 0 0 32px
+        }
+
+        .dropdown li,
+        .settings li {
+            line-height: 1
+        }
+
+        .sidebar-list li {
+            line-height: 1;
+            margin: 32px 0;
+            padding: 0 0 0 32px
+        }
+
+        .dropdown a {
+            color: #D0D6E2
+        }
+
+        .dropdown a,
+        .settings a,
+        .sidebar-list a {
+            display: block;
+            text-transform: none
+        }
+
+        .sidebar-list a {
+            color: #D0D6E2
+        }
+
+        .dropdown a:after,
+        .settings a:after,
+        .sidebar-list a:after {
+            content: "";
+            display: table;
+            clear: both
+        }
+
+        .dropdown .icon,
+        .settings .icon,
+        .sidebar-list .icon {
+            float: right
+        }
+
+        .open .dropdown,
+        .open .settings,
+        .open .sidebar-list {
+            display: block
+        }
+
+        .open .dropdown.collapse,
+        .open .collapse.settings,
+        .open .sidebar-list.collapse {
+            display: none
+        }
+
+        .open .dropdown.collapse.in,
+        .open .collapse.in.settings,
+        .open .sidebar-list.collapse.in {
+            display: block
+        }
+
+        .dropdown .unlinked .icon,
+        .settings .unlinked .icon,
+        .sidebar-list .unlinked .icon {
+            opacity: .3
+        }
+
+        .dropdown.documents li,
+        .documents.settings li,
+        .sidebar-list.documents li {
+            background-image: url("../img/icons/file.svg");
+            background-position: 240px center;
+            background-repeat: no-repeat;
+            background-size: 14px 16px;
+            padding: 3px 32px
+        }
+
+        .dropdown.documents li.octocat,
+        .documents.settings li.octocat,
+        .sidebar-list.documents li.octocat {
+            background-image: url("../img/icons/octocat.svg");
+            background-position: 234px center;
+            background-size: 24px 24px
+        }
+
+        .dropdown.documents li:last-child,
+        .documents.settings li:last-child,
+        .sidebar-list.documents li:last-child {
+            margin-bottom: 1rem
+        }
+
+        .dropdown.documents li.active a,
+        .documents.settings li.active a,
+        .sidebar-list.documents li.active a {
+            color: #35D7BB
+        }
+
+        .settings {
+            position: fixed;
+            top: 67px;
+            right: 16px;
+            border-radius: 3px;
+            width: 288px;
+            background-color: #373D49;
+            padding: 16px;
+            z-index: 7
+        }
+
+        .show-settings .settings {
+            display: block
+        }
+
+        .settings .has-checkbox {
+            float: left
+        }
+
+        .settings form {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-pack: justify;
+            justify-content: space-between
+        }
+
+        .settings input {
+            width: 20%
+        }
+
+        .settings a {
+            font-size: 1.25rem;
+            font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            line-height: 28px;
+            color: #D0D6E2
+        }
+
+        .settings a:after {
+            content: "";
+            display: table;
+            clear: both
+        }
+
+        .settings a:hover {
+            color: #35D7BB
+        }
+
+        .settings li {
+            border-bottom: 1px solid #4F535B;
+            margin: 0;
+            padding: 16px 0
+        }
+
+        .settings li:last-child {
+            border-bottom: none
+        }
+
+        .brand {
+            border: none;
+            display: block
+        }
+
+        .brand:hover g {
+            fill: #35D7BB
+        }
+
+        .toggle {
+            display: block;
+            float: left;
+            height: 16px;
+            padding: 25px 16px 26px;
+            width: 40px
+        }
+
+        .toggle span:after,
+        .toggle span:before {
+            content: '';
+            left: 0;
+            position: absolute;
+            top: -6px
+        }
+
+        .toggle span:after {
+            top: 6px
+        }
+
+        .toggle span {
+            display: block;
+            position: relative
+        }
+
+        .toggle span,
+        .toggle span:after,
+        .toggle span:before {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            background-color: #D3DAEA;
+            height: 2px;
+            transition: all .3s;
+            width: 20px
+        }
+
+        .open-menu .toggle span {
+            background-color: transparent
+        }
+
+        .open-menu .toggle span:before {
+            transform: rotate(45deg) translate(3px, 3px)
+        }
+
+        .open-menu .toggle span:after {
+            transform: rotate(-45deg) translate(5px, -6px)
+        }
+
+        .caret {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: 6px;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+            border-top: 4px solid;
+            border-right: 4px solid transparent;
+            border-left: 4px solid transparent
+        }
+
+        .sidebar {
+            overflow: auto;
+            height: 100%;
+            padding-right: 15px;
+            padding-bottom: 15px;
+            width: 285px
+        }
+
+        .sidebar-wrapper {
+            -webkit-overflow-scrolling: touch;
+            background-color: #2B2F36;
+            left: 0;
+            height: 100%;
+            overflow-y: hidden;
+            position: fixed;
+            top: 0;
+            width: 285px;
+            z-index: 1
+        }
+
+        .sidebar-branding {
+            width: 160px;
+            padding: 0;
+            margin: 16px auto
+        }
+
+        .header {
+            border-bottom: 1px solid #E8E8E8;
+            position: relative
+        }
+
+        .words,
+        .characters {
+            line-height: 1rem;
+            font-size: .8rem;
+            margin-bottom: .77999rem;
+            padding-top: .22001rem;
+            font-weight: 500;
+            font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 5;
+            position: absolute;
+            right: 16px;
+            top: 0
+        }
+
+        .words span,
+        .characters span {
+            color: #A0AABF
+        }
+
+        .words .counter,
+        .characters .counter {
+            color: #000
+        }
+
+        .words+.characters {
+            top: 22px
+        }
+
+        .mr10 {
+            margin-right: 10px
+        }
+
+        .btn {
+            text-align: center;
+            display: inline-block;
+            width: 100%;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            text-shadow: 0 1px 0 #1b8b77;
+            padding: 16px 24px;
+            background-color: #35D7BB;
+            border-radius: 3px;
+            margin: 0 auto 16px;
+            line-height: 1;
+            color: #fff;
+            transition: all .15s linear;
+            -webkit-font-smoothing: antialiased
+        }
+
+        .btn--new,
+        .btn--save {
+            display: block;
+            width: 238px
+        }
+
+        .btn--new:hover,
+        .btn--new:focus,
+        .btn--save:hover,
+        .btn--save:focus {
+            color: #fff;
+            border-bottom-color: transparent;
+            box-shadow: 0 1px 3px #24b59c;
+            text-shadow: 0 1px 0 #24b59c
+        }
+
+        .btn--save {
+            background-color: #4A5261;
+            text-shadow: 0 1px 1px #1e2127
+        }
+
+        .btn--save:hover,
+        .btn--save:focus {
+            color: #fff;
+            border-bottom-color: transparent;
+            box-shadow: 0 1px 5px #08090a;
+            text-shadow: none
+        }
+
+        .btn--delete {
+            display: block;
+            width: 238px;
+            background-color: transparent;
+            font-size: 12px;
+            text-shadow: none
+        }
+
+        .btn--delete:hover,
+        .btn--delete:focus {
+            color: #fff;
+            border-bottom-color: transparent;
+            text-shadow: 0 1px 0 #08090a;
+            opacity: .8
+        }
+
+        .btn--delete-modal,
+        .btn--ok,
+        .btn--close {
+            border-top: 0;
+            background-color: #4A5261;
+            text-shadow: 0 1px 0 #08090a;
+            margin: 0
+        }
+
+        .btn--delete-modal:hover,
+        .btn--delete-modal:focus,
+        .btn--ok:hover,
+        .btn--ok:focus,
+        .btn--close:hover,
+        .btn--close:focus {
+            color: #fff;
+            background-color: #292d36;
+            text-shadow: none
+        }
+
+        .btn--delete-modal {
+            display: inline;
+            width: auto
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(55, 61, 73, .8);
+            transition: all .25s ease-in-out;
+            transition-timing-function: ease-out;
+            will-change: left, opacity, visibility;
+            z-index: 5;
+            opacity: 0;
+            visibility: hidden
+        }
+
+        .show-settings .overlay {
+            visibility: visible;
+            opacity: 1
+        }
+
+        .switch {
+            float: right;
+            line-height: 1
+        }
+
+        .switch input {
+            display: none
+        }
+
+        .switch small {
+            display: inline-block;
+            cursor: pointer;
+            padding: 0 24px 0 0;
+            transition: all ease .2s;
+            background-color: #2B2F36;
+            border-color: #2B2F36
+        }
+
+        .switch small,
+        .switch small:before {
+            border-radius: 30px;
+            box-shadow: inset 0 0 2px 0 #14171F
+        }
+
+        .switch small:before {
+            display: block;
+            content: '';
+            width: 28px;
+            height: 28px;
+            background: #fff
+        }
+
+        .switch.checked small {
+            padding-right: 0;
+            padding-left: 24px;
+            background-color: #35D7BB;
+            box-shadow: none
+        }
+
+        .modal--dillinger.about .modal-dialog {
+            font-size: 1.25rem;
+            max-width: 500px
+        }
+
+        .modal--dillinger.scope .modal-dialog {
+            max-width: 300px;
+            margin: 5rem auto
+        }
+
+        .modal--dillinger .modal-dialog {
+            max-width: 600px;
+            width: auto;
+            margin: 5rem auto
+        }
+
+        .modal--dillinger .modal-content {
+            background: #373D49;
+            border-radius: 3px;
+            box-shadow: 0 2px 5px 0 #2C3B59;
+            color: #fff;
+            font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            padding: 2rem
+        }
+
+        .modal--dillinger ul {
+            list-style-type: disc;
+            margin: 1rem 0;
+            padding: 0 0 0 1rem
+        }
+
+        .modal--dillinger li {
+            padding: 0;
+            margin: 0
+        }
+
+        .modal--dillinger .modal-header {
+            border: 0;
+            padding: 0
+        }
+
+        .modal--dillinger .modal-body {
+            padding: 0
+        }
+
+        .modal--dillinger .modal-footer {
+            border: 0;
+            padding: 0
+        }
+
+        .modal--dillinger .close {
+            color: #fff;
+            opacity: 1
+        }
+
+        .modal-backdrop {
+            background-color: #373D49
+        }
+
+        .pagination--dillinger {
+            padding: 0 !important;
+            margin: 1.5rem 0 !important;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-line-pack: stretch;
+            align-content: stretch
+        }
+
+        .pagination--dillinger li {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            text-align: center
+        }
+
+        .pagination--dillinger li:first-child>a,
+        .pagination--dillinger li.disabled>a,
+        .pagination--dillinger li.disabled>a:hover,
+        .pagination--dillinger li.disabled>a:focus,
+        .pagination--dillinger li>a {
+            background-color: transparent;
+            border-color: #4F535B;
+            border-right-color: transparent
+        }
+
+        .pagination--dillinger li.active>a,
+        .pagination--dillinger li.active>a:hover,
+        .pagination--dillinger li.active>a:focus {
+            border-color: #4A5261;
+            background-color: #4A5261;
+            color: #fff
+        }
+
+        .pagination--dillinger li>a {
+            float: none;
+            color: #fff;
+            width: 100%;
+            display: block;
+            text-align: center;
+            margin: 0;
+            border-right-color: transparent;
+            padding: 6px
+        }
+
+        .pagination--dillinger li>a:hover,
+        .pagination--dillinger li>a:focus {
+            border-color: #35D7BB;
+            background-color: #35D7BB;
+            color: #fff
+        }
+
+        .pagination--dillinger li:last-child a {
+            border-color: #4F535B
+        }
+
+        .pagination--dillinger li:first-child a {
+            border-right-color: transparent
+        }
+
+        .diNotify {
+            position: absolute;
+            z-index: 9999;
+            left: 0;
+            right: 0;
+            top: 0;
+            margin: 0 auto;
+            max-width: 400px;
+            text-align: center;
+            transition: top .5s ease-in-out, opacity .5s ease-in-out;
+            visibility: hidden
+        }
+
+        .diNotify-body {
+            -webkit-font-smoothing: antialiased;
+            background-color: #35D7BB;
+            background: #666E7F;
+            border-radius: 3px;
+            color: #fff;
+            font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            overflow: hidden;
+            padding: 1rem 2rem .5rem;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: baseline;
+            align-items: baseline;
+            -ms-flex-pack: center;
+            justify-content: center
+        }
+
+        .diNotify-icon {
+            display: block;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            position: relative;
+            top: 3px
+        }
+
+        .diNotify-message {
+            padding-left: 1rem
+        }
+
+        .zen-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            background-color: #FFF;
+            opacity: 0;
+            transition: opacity .25s ease-in-out
+        }
+
+        .zen-wrapper.on {
+            opacity: 1
+        }
+
+        .enter-zen-mode {
+            background-image: url("../img/icons/enter-zen.svg");
+            right: .5rem;
+            top: .313rem;
+            display: none
+        }
+
+        .enter-zen-mode,
+        .close-zen-mode {
+            font: 0/0 a;
+            color: transparent;
+            text-shadow: none;
+            background-color: transparent;
+            border: 0;
+            background-repeat: no-repeat;
+            width: 32px;
+            height: 32px;
+            display: block;
+            position: absolute
+        }
+
+        .close-zen-mode {
+            background-image: url("../img/icons/exit-zen.svg");
+            right: 1rem;
+            top: 1rem
+        }
+
+        .zen-page {
+            position: relative;
+            top: 0;
+            bottom: 0;
+            z-index: 11;
+            height: 100%;
+            width: 100%
+        }
+
+        #zen {
+            font-size: 1.25rem;
+            width: 300px;
+            height: 80%;
+            margin: 0 auto;
+            position: relative;
+            top: 10%
+        }
+
+        #zen:before,
+        #zen:after {
+            content: "";
+            position: absolute;
+            height: 10%;
+            width: 100%;
+            z-index: 12;
+            pointer-events: none
+        }
+
+        #preview .table {
+            width: auto
+        }
+
+        .ui-resizable {
+            position: relative
+        }
+
+        .ui-resizable-handle {
+            position: absolute;
+            font-size: .1px;
+            z-index: 99999;
+            display: block
+        }
+
+        .ui-resizable-e {
+            background-color: #666;
+            border-right: 8px solid #e8e8e8;
+            border-left: 1px solid #222;
+            width: 10px;
+            z-index: 88 !important;
+            position: relative
+        }
+
+        .ui-resizable-e:after {
+            content: "-";
+            display: block;
+            position: absolute;
+            top: calc(50% - 16px);
+            left: 0;
+            height: 25px;
+            width: 2px;
+            background-color: rgba(0, 0, 0, .4);
+            margin: 3px
+        }
+
+        #editor {
+            cursor: ew-resize;
+            position: relative;
+            z-index: auto
+        }
+
+        .profile-pic {
+            float: left;
+            width: 250px
+        }
+
+        #_default_ a::before {
+            color: #A0AABF
+        }
+
+        #_default_ img {
+            display: none
+        }
+
+        #_default_ #_default_ {
+            display: block;
+            float: left;
+            max-width: 38%;
+            word-wrap: break-word
+        }
+
+        #_default_ .default-ad {
+            display: none
+        }
+
+        #_default_ ._default_ {
+            display: block
+        }
+
+        #_default_ a {
+            color: #35d7bb;
+            text-decoration: none
+        }
+
+        #_default_ a:hover {
+            color: #8ae8d8
+        }
+
+        #_default_ .default-image {
+            display: none
+        }
+
+        #_default_ .default-title:after {
+            content: " — "
+        }
+
+        #_default_ .default-title,
+        #_default_ .default-text,
+        #_default_ .default-description {
+            display: inline
+        }
+
+        #_default_ .default-title {
+            position: relative;
+            font-weight: 600;
+            display: none
+        }
+
+        #_default_ a:before {
+            position: relative;
+            top: 0;
+            padding: 5px;
+            color: #a0aabf;
+            content: "Ad";
+            text-transform: uppercase;
+            font-size: 8px;
+            font-family: Verdana, sans-serif
+        }
+
+        #_default_ {
+            display: block;
+            float: left;
+            max-width: 38%;
+            word-wrap: break-word
+        }
+
+        #_default_ ._default_ {
+            display: block;
+            font-size: .75rem;
+            height: 51px;
+            letter-spacing: 1px;
+            line-height: 1rem;
+            padding: 18px 24px
+        }
+
+        body {
+            max-width: 1024px;
+            margin: 0 auto;
+            overflow: auto;
+            padding: 2%
+        }
+
+        .split {
+            overflow: scroll;
+            padding: 0 !important;
+            -webkit-overflow-scrolling: touch
+        }
+
+        .split-editor {
+            padding-left: 0;
+            padding-right: 0;
+            position: relative;
+            z-index: 3
+        }
+
+        .show-preview .split-editor {
+            display: none
+        }
+
+        .split-preview {
+            background-color: #fff;
+            display: none;
+            top: 0;
+            position: relative;
+            z-index: 4
+        }
+
+        .show-preview .split-preview {
+            display: block
+        }
+
+        #editor {
+            font-size: 1rem;
+            font-family: "Ubuntu Mono", Monaco;
+            font-weight: 400;
+            line-height: 2rem;
+            width: 100%;
+            height: 100%
+        }
+
+        #editor .ace_gutter {
+            -webkit-font-smoothing: antialiased
+        }
+
+        .editor-header {
+            width: 50%;
+            float: left;
+            border-bottom: 1px solid #E8E8E8;
+            position: relative
+        }
+
+        .editor-header--first {
+            border-right: 1px solid #E8E8E8
+        }
+
+        .editor-header .title {
+            display: inline-block
+        }
+
+        .preview-html {
+            padding: 15px
+        }
+
+        .preview-html a {
+            color: #A0AABF;
+            text-decoration: underline
+        }
+
+        .preview-src {
+            white-space: normal
+        }
+
+        .preview-mode-toggle-src {
+            background-image: url("../img/icons/code.svg")
+        }
+
+        .preview-mode-toggle-src,
+        .preview-mode-toggle-html {
+            font: 0/0 a;
+            color: transparent;
+            text-shadow: none;
+            background-color: transparent;
+            border: 0;
+            background-repeat: no-repeat;
+            width: 32px;
+            height: 32px;
+            display: block;
+            position: absolute;
+            right: .5rem;
+            top: .5rem;
+            display: none
+        }
+
+        .preview-mode-toggle-html {
+            background-image: url("../img/icons/eye.svg")
+        }
+
+        .sr-only {
+            visibility: hidden;
+            text-overflow: 110%;
+            overflow: hidden;
+            top: -100px;
+            position: absolute
+        }
+
+        .mnone {
+            margin: 0 !important
+        }
+
+        @media screen and (min-width:27.5em) {
+            html {
+                font-size: .875em
+            }
+
+            body {
+                font-size: 1rem
+            }
+
+            ul,
+            ol {
+                margin-bottom: .83999rem;
+                padding-top: .16001rem
+            }
+
+            p {
+                padding-top: .66001rem
+            }
+
+            p,
+            pre {
+                margin-bottom: 1.33999rem
+            }
+
+            pre,
+            blockquote p {
+                font-size: 1rem;
+                padding-top: .66001rem
+            }
+
+            blockquote p {
+                margin-bottom: .33999rem
+            }
+
+            h1 {
+                font-size: 2.0571429rem;
+                margin-bottom: .21999rem;
+                padding-top: .78001rem
+            }
+
+            h2 {
+                font-size: 1.953125rem;
+                margin-bottom: .1835837rem;
+                padding-top: .8164163rem
+            }
+
+            h3 {
+                font-size: 1.6457143rem;
+                margin-bottom: .07599rem;
+                padding-top: .92401rem
+            }
+
+            h4 {
+                font-size: 1.5625rem;
+                margin-bottom: .546865rem;
+                padding-top: .453135rem
+            }
+
+            h5 {
+                font-size: 1.25rem;
+                margin-bottom: -.56251rem;
+                padding-top: .56251rem
+            }
+
+            h6 {
+                font-size: 1rem;
+                margin-bottom: -.65001rem;
+                padding-top: .65001rem
+            }
+
+            .g {
+                margin-left: -16px;
+                margin-right: -16px
+            }
+
+            .g-b {
+                padding-left: 16px;
+                padding-right: 16px
+            }
+
+            .g-b--m1of1 {
+                width: 100%
+            }
+
+            .g-b--m1of2,
+            .g-b--m2of4,
+            .g-b--m3of6,
+            .g-b--m4of8,
+            .g-b--m5of10,
+            .g-b--m6of12 {
+                width: 50%
+            }
+
+            .g-b--m1of3,
+            .g-b--m2of6,
+            .g-b--m4of12 {
+                width: 33.333%
+            }
+
+            .g-b--m2of3,
+            .g-b--m4of6,
+            .g-b--m8of12 {
+                width: 66.666%
+            }
+
+            .g-b--m1of4,
+            .g-b--m2of8,
+            .g-b--m3of12 {
+                width: 25%
+            }
+
+            .g-b--m3of4,
+            .g-b--m6of8,
+            .g-b--m9of12 {
+                width: 75%
+            }
+
+            .g-b--m1of5,
+            .g-b--m2of10 {
+                width: 20%
+            }
+
+            .g-b--m2of5,
+            .g-b--m4of10 {
+                width: 40%
+            }
+
+            .g-b--m3of5,
+            .g-b--m6of10 {
+                width: 60%
+            }
+
+            .g-b--m4of5,
+            .g-b--m8of10 {
+                width: 80%
+            }
+
+            .g-b--m1of6,
+            .g-b--m2of12 {
+                width: 16.666%
+            }
+
+            .g-b--m5of6,
+            .g-b--m10of12 {
+                width: 83.333%
+            }
+
+            .g-b--m1of8 {
+                width: 12.5%
+            }
+
+            .g-b--m3of8 {
+                width: 37.5%
+            }
+
+            .g-b--m5of8 {
+                width: 62.5%
+            }
+
+            .g-b--m7of8 {
+                width: 87.5%
+            }
+
+            .g-b--m1of10 {
+                width: 10%
+            }
+
+            .g-b--m3of10 {
+                width: 30%
+            }
+
+            .g-b--m7of10 {
+                width: 70%
+            }
+
+            .g-b--m9of10 {
+                width: 90%
+            }
+
+            .g-b--m1of12 {
+                width: 8.333%
+            }
+
+            .g-b--m5of12 {
+                width: 41.666%
+            }
+
+            .g-b--m7of12 {
+                width: 58.333%
+            }
+
+            .g-b--m11of12 {
+                width: 91.666%
+            }
+
+            .g-b--push--m1of1 {
+                margin-left: 100%
+            }
+
+            .g-b--push--m1of2,
+            .g-b--push--m2of4,
+            .g-b--push--m3of6,
+            .g-b--push--m4of8,
+            .g-b--push--m5of10,
+            .g-b--push--m6of12 {
+                margin-left: 50%
+            }
+
+            .g-b--push--m1of3,
+            .g-b--push--m2of6,
+            .g-b--push--m4of12 {
+                margin-left: 33.333%
+            }
+
+            .g-b--push--m2of3,
+            .g-b--push--m4of6,
+            .g-b--push--m8of12 {
+                margin-left: 66.666%
+            }
+
+            .g-b--push--m1of4,
+            .g-b--push--m2of8,
+            .g-b--push--m3of12 {
+                margin-left: 25%
+            }
+
+            .g-b--push--m3of4,
+            .g-b--push--m6of8,
+            .g-b--push--m9of12 {
+                margin-left: 75%
+            }
+
+            .g-b--push--m1of5,
+            .g-b--push--m2of10 {
+                margin-left: 20%
+            }
+
+            .g-b--push--m2of5,
+            .g-b--push--m4of10 {
+                margin-left: 40%
+            }
+
+            .g-b--push--m3of5,
+            .g-b--push--m6of10 {
+                margin-left: 60%
+            }
+
+            .g-b--push--m4of5,
+            .g-b--push--m8of10 {
+                margin-left: 80%
+            }
+
+            .g-b--push--m1of6,
+            .g-b--push--m2of12 {
+                margin-left: 16.666%
+            }
+
+            .g-b--push--m5of6,
+            .g-b--push--m10of12 {
+                margin-left: 83.333%
+            }
+
+            .g-b--push--m1of8 {
+                margin-left: 12.5%
+            }
+
+            .g-b--push--m3of8 {
+                margin-left: 37.5%
+            }
+
+            .g-b--push--m5of8 {
+                margin-left: 62.5%
+            }
+
+            .g-b--push--m7of8 {
+                margin-left: 87.5%
+            }
+
+            .g-b--push--m1of10 {
+                margin-left: 10%
+            }
+
+            .g-b--push--m3of10 {
+                margin-left: 30%
+            }
+
+            .g-b--push--m7of10 {
+                margin-left: 70%
+            }
+
+            .g-b--push--m9of10 {
+                margin-left: 90%
+            }
+
+            .g-b--push--m1of12 {
+                margin-left: 8.333%
+            }
+
+            .g-b--push--m5of12 {
+                margin-left: 41.666%
+            }
+
+            .g-b--push--m7of12 {
+                margin-left: 58.333%
+            }
+
+            .g-b--push--m11of12 {
+                margin-left: 91.666%
+            }
+
+            .g-b--pull--m1of1 {
+                margin-right: 100%
+            }
+
+            .g-b--pull--m1of2,
+            .g-b--pull--m2of4,
+            .g-b--pull--m3of6,
+            .g-b--pull--m4of8,
+            .g-b--pull--m5of10,
+            .g-b--pull--m6of12 {
+                margin-right: 50%
+            }
+
+            .g-b--pull--m1of3,
+            .g-b--pull--m2of6,
+            .g-b--pull--m4of12 {
+                margin-right: 33.333%
+            }
+
+            .g-b--pull--m2of3,
+            .g-b--pull--m4of6,
+            .g-b--pull--m8of12 {
+                margin-right: 66.666%
+            }
+
+            .g-b--pull--m1of4,
+            .g-b--pull--m2of8,
+            .g-b--pull--m3of12 {
+                margin-right: 25%
+            }
+
+            .g-b--pull--m3of4,
+            .g-b--pull--m6of8,
+            .g-b--pull--m9of12 {
+                margin-right: 75%
+            }
+
+            .g-b--pull--m1of5,
+            .g-b--pull--m2of10 {
+                margin-right: 20%
+            }
+
+            .g-b--pull--m2of5,
+            .g-b--pull--m4of10 {
+                margin-right: 40%
+            }
+
+            .g-b--pull--m3of5,
+            .g-b--pull--m6of10 {
+                margin-right: 60%
+            }
+
+            .g-b--pull--m4of5,
+            .g-b--pull--m8of10 {
+                margin-right: 80%
+            }
+
+            .g-b--pull--m1of6,
+            .g-b--pull--m2of12 {
+                margin-right: 16.666%
+            }
+
+            .g-b--pull--m5of6,
+            .g-b--pull--m10of12 {
+                margin-right: 83.333%
+            }
+
+            .g-b--pull--m1of8 {
+                margin-right: 12.5%
+            }
+
+            .g-b--pull--m3of8 {
+                margin-right: 37.5%
+            }
+
+            .g-b--pull--m5of8 {
+                margin-right: 62.5%
+            }
+
+            .g-b--pull--m7of8 {
+                margin-right: 87.5%
+            }
+
+            .g-b--pull--m1of10 {
+                margin-right: 10%
+            }
+
+            .g-b--pull--m3of10 {
+                margin-right: 30%
+            }
+
+            .g-b--pull--m7of10 {
+                margin-right: 70%
+            }
+
+            .g-b--pull--m9of10 {
+                margin-right: 90%
+            }
+
+            .g-b--pull--m1of12 {
+                margin-right: 8.333%
+            }
+
+            .g-b--pull--m5of12 {
+                margin-right: 41.666%
+            }
+
+            .g-b--pull--m7of12 {
+                margin-right: 58.333%
+            }
+
+            .g-b--pull--m11of12 {
+                margin-right: 91.666%
+            }
+
+            .splashscreen p {
+                font-size: 1.25rem;
+                margin-bottom: 1.43749rem;
+                padding-top: .56251rem
+            }
+
+            .title {
+                font-size: .8rem;
+                margin-bottom: .77999rem;
+                padding-top: .22001rem
+            }
+
+            .title-document {
+                margin-bottom: .89999rem;
+                padding-top: .10001rem
+            }
+
+            .title-document,
+            .settings a {
+                font-size: 1.25rem
+            }
+
+            .words,
+            .characters {
+                font-size: .8rem;
+                margin-bottom: .77999rem;
+                padding-top: .22001rem
+            }
+
+            .modal--dillinger.about .modal-dialog,
+            #zen {
+                font-size: 1.25rem
+            }
+
+            #zen {
+                width: 400px
+            }
+
+            #editor {
+                font-size: 1rem
+            }
+        }
+
+        @media screen and (min-width:46.25em) {
+            html {
+                font-size: .875em
+            }
+
+            body {
+                font-size: 1rem
+            }
+
+            ul,
+            ol {
+                margin-bottom: .83999rem;
+                padding-top: .16001rem
+            }
+
+            p {
+                padding-top: .66001rem
+            }
+
+            p,
+            pre {
+                margin-bottom: 1.33999rem
+            }
+
+            pre,
+            blockquote p {
+                font-size: 1rem;
+                padding-top: .66001rem
+            }
+
+            blockquote p {
+                margin-bottom: .33999rem
+            }
+
+            h1 {
+                font-size: 2.0571429rem;
+                margin-bottom: .21999rem;
+                padding-top: .78001rem
+            }
+
+            h2 {
+                font-size: 1.953125rem;
+                margin-bottom: .1835837rem;
+                padding-top: .8164163rem
+            }
+
+            h3 {
+                font-size: 1.6457143rem;
+                margin-bottom: .07599rem;
+                padding-top: .92401rem
+            }
+
+            h4 {
+                font-size: 1.5625rem;
+                margin-bottom: .546865rem;
+                padding-top: .453135rem
+            }
+
+            h5 {
+                font-size: 1.25rem;
+                margin-bottom: -.56251rem;
+                padding-top: .56251rem
+            }
+
+            h6 {
+                font-size: 1rem;
+                margin-bottom: -.65001rem;
+                padding-top: .65001rem
+            }
+
+            .g {
+                margin-left: -16px;
+                margin-right: -16px
+            }
+
+            .g-b {
+                padding-left: 16px;
+                padding-right: 16px
+            }
+
+            .g-b--t1of1 {
+                width: 100%
+            }
+
+            .g-b--t1of2,
+            .g-b--t2of4,
+            .g-b--t3of6,
+            .g-b--t4of8,
+            .g-b--t5of10,
+            .g-b--t6of12 {
+                width: 50%
+            }
+
+            .g-b--t1of3,
+            .g-b--t2of6,
+            .g-b--t4of12 {
+                width: 33.333%
+            }
+
+            .g-b--t2of3,
+            .g-b--t4of6,
+            .g-b--t8of12 {
+                width: 66.666%
+            }
+
+            .g-b--t1of4,
+            .g-b--t2of8,
+            .g-b--t3of12 {
+                width: 25%
+            }
+
+            .g-b--t3of4,
+            .g-b--t6of8,
+            .g-b--t9of12 {
+                width: 75%
+            }
+
+            .g-b--t1of5,
+            .g-b--t2of10 {
+                width: 20%
+            }
+
+            .g-b--t2of5,
+            .g-b--t4of10 {
+                width: 40%
+            }
+
+            .g-b--t3of5,
+            .g-b--t6of10 {
+                width: 60%
+            }
+
+            .g-b--t4of5,
+            .g-b--t8of10 {
+                width: 80%
+            }
+
+            .g-b--t1of6,
+            .g-b--t2of12 {
+                width: 16.666%
+            }
+
+            .g-b--t5of6,
+            .g-b--t10of12 {
+                width: 83.333%
+            }
+
+            .g-b--t1of8 {
+                width: 12.5%
+            }
+
+            .g-b--t3of8 {
+                width: 37.5%
+            }
+
+            .g-b--t5of8 {
+                width: 62.5%
+            }
+
+            .g-b--t7of8 {
+                width: 87.5%
+            }
+
+            .g-b--t1of10 {
+                width: 10%
+            }
+
+            .g-b--t3of10 {
+                width: 30%
+            }
+
+            .g-b--t7of10 {
+                width: 70%
+            }
+
+            .g-b--t9of10 {
+                width: 90%
+            }
+
+            .g-b--t1of12 {
+                width: 8.333%
+            }
+
+            .g-b--t5of12 {
+                width: 41.666%
+            }
+
+            .g-b--t7of12 {
+                width: 58.333%
+            }
+
+            .g-b--t11of12 {
+                width: 91.666%
+            }
+
+            .g-b--push--t1of1 {
+                margin-left: 100%
+            }
+
+            .g-b--push--t1of2,
+            .g-b--push--t2of4,
+            .g-b--push--t3of6,
+            .g-b--push--t4of8,
+            .g-b--push--t5of10,
+            .g-b--push--t6of12 {
+                margin-left: 50%
+            }
+
+            .g-b--push--t1of3,
+            .g-b--push--t2of6,
+            .g-b--push--t4of12 {
+                margin-left: 33.333%
+            }
+
+            .g-b--push--t2of3,
+            .g-b--push--t4of6,
+            .g-b--push--t8of12 {
+                margin-left: 66.666%
+            }
+
+            .g-b--push--t1of4,
+            .g-b--push--t2of8,
+            .g-b--push--t3of12 {
+                margin-left: 25%
+            }
+
+            .g-b--push--t3of4,
+            .g-b--push--t6of8,
+            .g-b--push--t9of12 {
+                margin-left: 75%
+            }
+
+            .g-b--push--t1of5,
+            .g-b--push--t2of10 {
+                margin-left: 20%
+            }
+
+            .g-b--push--t2of5,
+            .g-b--push--t4of10 {
+                margin-left: 40%
+            }
+
+            .g-b--push--t3of5,
+            .g-b--push--t6of10 {
+                margin-left: 60%
+            }
+
+            .g-b--push--t4of5,
+            .g-b--push--t8of10 {
+                margin-left: 80%
+            }
+
+            .g-b--push--t1of6,
+            .g-b--push--t2of12 {
+                margin-left: 16.666%
+            }
+
+            .g-b--push--t5of6,
+            .g-b--push--t10of12 {
+                margin-left: 83.333%
+            }
+
+            .g-b--push--t1of8 {
+                margin-left: 12.5%
+            }
+
+            .g-b--push--t3of8 {
+                margin-left: 37.5%
+            }
+
+            .g-b--push--t5of8 {
+                margin-left: 62.5%
+            }
+
+            .g-b--push--t7of8 {
+                margin-left: 87.5%
+            }
+
+            .g-b--push--t1of10 {
+                margin-left: 10%
+            }
+
+            .g-b--push--t3of10 {
+                margin-left: 30%
+            }
+
+            .g-b--push--t7of10 {
+                margin-left: 70%
+            }
+
+            .g-b--push--t9of10 {
+                margin-left: 90%
+            }
+
+            .g-b--push--t1of12 {
+                margin-left: 8.333%
+            }
+
+            .g-b--push--t5of12 {
+                margin-left: 41.666%
+            }
+
+            .g-b--push--t7of12 {
+                margin-left: 58.333%
+            }
+
+            .g-b--push--t11of12 {
+                margin-left: 91.666%
+            }
+
+            .g-b--pull--t1of1 {
+                margin-right: 100%
+            }
+
+            .g-b--pull--t1of2,
+            .g-b--pull--t2of4,
+            .g-b--pull--t3of6,
+            .g-b--pull--t4of8,
+            .g-b--pull--t5of10,
+            .g-b--pull--t6of12 {
+                margin-right: 50%
+            }
+
+            .g-b--pull--t1of3,
+            .g-b--pull--t2of6,
+            .g-b--pull--t4of12 {
+                margin-right: 33.333%
+            }
+
+            .g-b--pull--t2of3,
+            .g-b--pull--t4of6,
+            .g-b--pull--t8of12 {
+                margin-right: 66.666%
+            }
+
+            .g-b--pull--t1of4,
+            .g-b--pull--t2of8,
+            .g-b--pull--t3of12 {
+                margin-right: 25%
+            }
+
+            .g-b--pull--t3of4,
+            .g-b--pull--t6of8,
+            .g-b--pull--t9of12 {
+                margin-right: 75%
+            }
+
+            .g-b--pull--t1of5,
+            .g-b--pull--t2of10 {
+                margin-right: 20%
+            }
+
+            .g-b--pull--t2of5,
+            .g-b--pull--t4of10 {
+                margin-right: 40%
+            }
+
+            .g-b--pull--t3of5,
+            .g-b--pull--t6of10 {
+                margin-right: 60%
+            }
+
+            .g-b--pull--t4of5,
+            .g-b--pull--t8of10 {
+                margin-right: 80%
+            }
+
+            .g-b--pull--t1of6,
+            .g-b--pull--t2of12 {
+                margin-right: 16.666%
+            }
+
+            .g-b--pull--t5of6,
+            .g-b--pull--t10of12 {
+                margin-right: 83.333%
+            }
+
+            .g-b--pull--t1of8 {
+                margin-right: 12.5%
+            }
+
+            .g-b--pull--t3of8 {
+                margin-right: 37.5%
+            }
+
+            .g-b--pull--t5of8 {
+                margin-right: 62.5%
+            }
+
+            .g-b--pull--t7of8 {
+                margin-right: 87.5%
+            }
+
+            .g-b--pull--t1of10 {
+                margin-right: 10%
+            }
+
+            .g-b--pull--t3of10 {
+                margin-right: 30%
+            }
+
+            .g-b--pull--t7of10 {
+                margin-right: 70%
+            }
+
+            .g-b--pull--t9of10 {
+                margin-right: 90%
+            }
+
+            .g-b--pull--t1of12 {
+                margin-right: 8.333%
+            }
+
+            .g-b--pull--t5of12 {
+                margin-right: 41.666%
+            }
+
+            .g-b--pull--t7of12 {
+                margin-right: 58.333%
+            }
+
+            .g-b--pull--t11of12 {
+                margin-right: 91.666%
+            }
+
+            .splashscreen-dillinger {
+                width: 500px
+            }
+
+            .splashscreen p {
+                font-size: 1.25rem;
+                margin-bottom: 1.43749rem;
+                padding-top: .56251rem
+            }
+
+            .title {
+                font-size: .8rem;
+                margin-bottom: .77999rem;
+                padding-top: .22001rem
+            }
+
+            .title-document {
+                font-size: 1.25rem;
+                margin-bottom: .89999rem;
+                padding-top: .10001rem
+            }
+
+            .menu .menu-item--save-to,
+            .menu .menu-item--import-from {
+                display: block
+            }
+
+            .menu .menu-item--preview,
+            .menu .menu-item--save-to.in-sidebar,
+            .menu .menu-item--import-from.in-sidebar {
+                display: none
+            }
+
+            .settings a {
+                font-size: 1.25rem
+            }
+
+            .words,
+            .characters {
+                font-size: .8rem;
+                margin-bottom: .77999rem;
+                padding-top: .22001rem
+            }
+
+            .modal--dillinger.about .modal-dialog {
+                font-size: 1.25rem
+            }
+
+            .enter-zen-mode {
+                display: block
+            }
+
+            .close-zen-mode {
+                right: 3rem;
+                top: 3rem
+            }
+
+            #zen {
+                font-size: 1.25rem;
+                width: 500px
+            }
+
+            .split-editor {
+                border-right: 1px solid #E8E8E8;
+                float: left;
+                padding-right: 16px;
+                width: 50%
+            }
+
+            .show-preview .split-editor {
+                display: block
+            }
+
+            .split-preview {
+                display: block;
+                float: right;
+                position: relative;
+                top: 0;
+                width: 50%
+            }
+
+            #editor {
+                font-size: 1rem
+            }
+
+            .preview-mode-toggle-src,
+            .preview-mode-toggle-html {
+                display: block
+            }
+        }
+
+        @media screen and (min-width:62.5em) {
+            html {
+                font-size: .875em
+            }
+
+            body {
+                font-size: 1rem
+            }
+
+            ul,
+            ol {
+                margin-bottom: .83999rem;
+                padding-top: .16001rem
+            }
+
+            p {
+                padding-top: .66001rem
+            }
+
+            p,
+            pre {
+                margin-bottom: 1.33999rem
+            }
+
+            pre,
+            blockquote p {
+                font-size: 1rem;
+                padding-top: .66001rem
+            }
+
+            blockquote p {
+                margin-bottom: .33999rem
+            }
+
+            h1 {
+                font-size: 2.0571429rem;
+                margin-bottom: .21999rem;
+                padding-top: .78001rem
+            }
+
+            h2 {
+                font-size: 1.953125rem;
+                margin-bottom: .1835837rem;
+                padding-top: .8164163rem
+            }
+
+            h3 {
+                font-size: 1.6457143rem;
+                margin-bottom: .07599rem;
+                padding-top: .92401rem
+            }
+
+            h4 {
+                font-size: 1.5625rem;
+                margin-bottom: .546865rem;
+                padding-top: .453135rem
+            }
+
+            h5 {
+                font-size: 1.25rem;
+                margin-bottom: -.56251rem;
+                padding-top: .56251rem
+            }
+
+            h6 {
+                font-size: 1rem;
+                margin-bottom: -.65001rem;
+                padding-top: .65001rem
+            }
+
+            .g {
+                margin-left: -16px;
+                margin-right: -16px
+            }
+
+            .g-b {
+                padding-left: 16px;
+                padding-right: 16px
+            }
+
+            .g-b--d1of1 {
+                width: 100%
+            }
+
+            .g-b--d1of2,
+            .g-b--d2of4,
+            .g-b--d3of6,
+            .g-b--d4of8,
+            .g-b--d5of10,
+            .g-b--d6of12 {
+                width: 50%
+            }
+
+            .g-b--d1of3,
+            .g-b--d2of6,
+            .g-b--d4of12 {
+                width: 33.333%
+            }
+
+            .g-b--d2of3,
+            .g-b--d4of6,
+            .g-b--d8of12 {
+                width: 66.666%
+            }
+
+            .g-b--d1of4,
+            .g-b--d2of8,
+            .g-b--d3of12 {
+                width: 25%
+            }
+
+            .g-b--d3of4,
+            .g-b--d6of8,
+            .g-b--d9of12 {
+                width: 75%
+            }
+
+            .g-b--d1of5,
+            .g-b--d2of10 {
+                width: 20%
+            }
+
+            .g-b--d2of5,
+            .g-b--d4of10 {
+                width: 40%
+            }
+
+            .g-b--d3of5,
+            .g-b--d6of10 {
+                width: 60%
+            }
+
+            .g-b--d4of5,
+            .g-b--d8of10 {
+                width: 80%
+            }
+
+            .g-b--d1of6,
+            .g-b--d2of12 {
+                width: 16.666%
+            }
+
+            .g-b--d5of6,
+            .g-b--d10of12 {
+                width: 83.333%
+            }
+
+            .g-b--d1of8 {
+                width: 12.5%
+            }
+
+            .g-b--d3of8 {
+                width: 37.5%
+            }
+
+            .g-b--d5of8 {
+                width: 62.5%
+            }
+
+            .g-b--d7of8 {
+                width: 87.5%
+            }
+
+            .g-b--d1of10 {
+                width: 10%
+            }
+
+            .g-b--d3of10 {
+                width: 30%
+            }
+
+            .g-b--d7of10 {
+                width: 70%
+            }
+
+            .g-b--d9of10 {
+                width: 90%
+            }
+
+            .g-b--d1of12 {
+                width: 8.333%
+            }
+
+            .g-b--d5of12 {
+                width: 41.666%
+            }
+
+            .g-b--d7of12 {
+                width: 58.333%
+            }
+
+            .g-b--d11of12 {
+                width: 91.666%
+            }
+
+            .g-b--push--d1of1 {
+                margin-left: 100%
+            }
+
+            .g-b--push--d1of2,
+            .g-b--push--d2of4,
+            .g-b--push--d3of6,
+            .g-b--push--d4of8,
+            .g-b--push--d5of10,
+            .g-b--push--d6of12 {
+                margin-left: 50%
+            }
+
+            .g-b--push--d1of3,
+            .g-b--push--d2of6,
+            .g-b--push--d4of12 {
+                margin-left: 33.333%
+            }
+
+            .g-b--push--d2of3,
+            .g-b--push--d4of6,
+            .g-b--push--d8of12 {
+                margin-left: 66.666%
+            }
+
+            .g-b--push--d1of4,
+            .g-b--push--d2of8,
+            .g-b--push--d3of12 {
+                margin-left: 25%
+            }
+
+            .g-b--push--d3of4,
+            .g-b--push--d6of8,
+            .g-b--push--d9of12 {
+                margin-left: 75%
+            }
+
+            .g-b--push--d1of5,
+            .g-b--push--d2of10 {
+                margin-left: 20%
+            }
+
+            .g-b--push--d2of5,
+            .g-b--push--d4of10 {
+                margin-left: 40%
+            }
+
+            .g-b--push--d3of5,
+            .g-b--push--d6of10 {
+                margin-left: 60%
+            }
+
+            .g-b--push--d4of5,
+            .g-b--push--d8of10 {
+                margin-left: 80%
+            }
+
+            .g-b--push--d1of6,
+            .g-b--push--d2of12 {
+                margin-left: 16.666%
+            }
+
+            .g-b--push--d5of6,
+            .g-b--push--d10of12 {
+                margin-left: 83.333%
+            }
+
+            .g-b--push--d1of8 {
+                margin-left: 12.5%
+            }
+
+            .g-b--push--d3of8 {
+                margin-left: 37.5%
+            }
+
+            .g-b--push--d5of8 {
+                margin-left: 62.5%
+            }
+
+            .g-b--push--d7of8 {
+                margin-left: 87.5%
+            }
+
+            .g-b--push--d1of10 {
+                margin-left: 10%
+            }
+
+            .g-b--push--d3of10 {
+                margin-left: 30%
+            }
+
+            .g-b--push--d7of10 {
+                margin-left: 70%
+            }
+
+            .g-b--push--d9of10 {
+                margin-left: 90%
+            }
+
+            .g-b--push--d1of12 {
+                margin-left: 8.333%
+            }
+
+            .g-b--push--d5of12 {
+                margin-left: 41.666%
+            }
+
+            .g-b--push--d7of12 {
+                margin-left: 58.333%
+            }
+
+            .g-b--push--d11of12 {
+                margin-left: 91.666%
+            }
+
+            .g-b--pull--d1of1 {
+                margin-right: 100%
+            }
+
+            .g-b--pull--d1of2,
+            .g-b--pull--d2of4,
+            .g-b--pull--d3of6,
+            .g-b--pull--d4of8,
+            .g-b--pull--d5of10,
+            .g-b--pull--d6of12 {
+                margin-right: 50%
+            }
+
+            .g-b--pull--d1of3,
+            .g-b--pull--d2of6,
+            .g-b--pull--d4of12 {
+                margin-right: 33.333%
+            }
+
+            .g-b--pull--d2of3,
+            .g-b--pull--d4of6,
+            .g-b--pull--d8of12 {
+                margin-right: 66.666%
+            }
+
+            .g-b--pull--d1of4,
+            .g-b--pull--d2of8,
+            .g-b--pull--d3of12 {
+                margin-right: 25%
+            }
+
+            .g-b--pull--d3of4,
+            .g-b--pull--d6of8,
+            .g-b--pull--d9of12 {
+                margin-right: 75%
+            }
+
+            .g-b--pull--d1of5,
+            .g-b--pull--d2of10 {
+                margin-right: 20%
+            }
+
+            .g-b--pull--d2of5,
+            .g-b--pull--d4of10 {
+                margin-right: 40%
+            }
+
+            .g-b--pull--d3of5,
+            .g-b--pull--d6of10 {
+                margin-right: 60%
+            }
+
+            .g-b--pull--d4of5,
+            .g-b--pull--d8of10 {
+                margin-right: 80%
+            }
+
+            .g-b--pull--d1of6,
+            .g-b--pull--d2of12 {
+                margin-right: 16.666%
+            }
+
+            .g-b--pull--d5of6,
+            .g-b--pull--d10of12 {
+                margin-right: 83.333%
+            }
+
+            .g-b--pull--d1of8 {
+                margin-right: 12.5%
+            }
+
+            .g-b--pull--d3of8 {
+                margin-right: 37.5%
+            }
+
+            .g-b--pull--d5of8 {
+                margin-right: 62.5%
+            }
+
+            .g-b--pull--d7of8 {
+                margin-right: 87.5%
+            }
+
+            .g-b--pull--d1of10 {
+                margin-right: 10%
+            }
+
+            .g-b--pull--d3of10 {
+                margin-right: 30%
+            }
+
+            .g-b--pull--d7of10 {
+                margin-right: 70%
+            }
+
+            .g-b--pull--d9of10 {
+                margin-right: 90%
+            }
+
+            .g-b--pull--d1of12 {
+                margin-right: 8.333%
+            }
+
+            .g-b--pull--d5of12 {
+                margin-right: 41.666%
+            }
+
+            .g-b--pull--d7of12 {
+                margin-right: 58.333%
+            }
+
+            .g-b--pull--d11of12 {
+                margin-right: 91.666%
+            }
+
+            .splashscreen-dillinger {
+                width: 700px
+            }
+
+            .splashscreen p {
+                font-size: 1.25rem;
+                margin-bottom: 1.43749rem;
+                padding-top: .56251rem
+            }
+
+            .title {
+                font-size: .8rem;
+                margin-bottom: .77999rem;
+                padding-top: .22001rem
+            }
+
+            .title-document {
+                font-size: 1.25rem;
+                margin-bottom: .89999rem;
+                padding-top: .10001rem
+            }
+
+            .menu .menu-item--export-as {
+                display: block
+            }
+
+            .menu .menu-item--preview {
+                display: none
+            }
+
+            .settings a {
+                font-size: 1.25rem
+            }
+
+            .words,
+            .characters {
+                font-size: .8rem;
+                margin-bottom: .77999rem;
+                padding-top: .22001rem
+            }
+
+            .modal--dillinger.about .modal-dialog,
+            #zen {
+                font-size: 1.25rem
+            }
+
+            #zen {
+                width: 700px
+            }
+
+            #editor {
+                font-size: 1rem
+            }
+        }
+
+        @media screen and (min-width:87.5em) {
+            html {
+                font-size: .875em
+            }
+
+            body {
+                font-size: 1rem
+            }
+
+            ul,
+            ol {
+                margin-bottom: .83999rem;
+                padding-top: .16001rem
+            }
+
+            p {
+                padding-top: .66001rem
+            }
+
+            p,
+            pre {
+                margin-bottom: 1.33999rem
+            }
+
+            pre,
+            blockquote p {
+                font-size: 1rem;
+                padding-top: .66001rem
+            }
+
+            blockquote p {
+                margin-bottom: .33999rem
+            }
+
+            h1 {
+                font-size: 2.0571429rem;
+                margin-bottom: .21999rem;
+                padding-top: .78001rem
+            }
+
+            h2 {
+                font-size: 1.953125rem;
+                margin-bottom: .1835837rem;
+                padding-top: .8164163rem
+            }
+
+            h3 {
+                font-size: 1.6457143rem;
+                margin-bottom: .07599rem;
+                padding-top: .92401rem
+            }
+
+            h4 {
+                font-size: 1.5625rem;
+                margin-bottom: .546865rem;
+                padding-top: .453135rem
+            }
+
+            h5 {
+                font-size: 1.25rem;
+                margin-bottom: -.56251rem;
+                padding-top: .56251rem
+            }
+
+            h6 {
+                font-size: 1rem;
+                margin-bottom: -.65001rem;
+                padding-top: .65001rem
+            }
+
+            .splashscreen-dillinger {
+                width: 800px
+            }
+
+            .splashscreen p {
+                font-size: 1.25rem;
+                margin-bottom: 1.43749rem;
+                padding-top: .56251rem
+            }
+
+            .title {
+                font-size: .8rem;
+                margin-bottom: .77999rem;
+                padding-top: .22001rem
+            }
+
+            .title-document {
+                margin-bottom: .89999rem;
+                padding-top: .10001rem
+            }
+
+            .title-document,
+            .settings a {
+                font-size: 1.25rem
+            }
+
+            .words,
+            .characters {
+                font-size: .8rem;
+                margin-bottom: .77999rem;
+                padding-top: .22001rem
+            }
+
+            .modal--dillinger.about .modal-dialog,
+            #zen {
+                font-size: 1.25rem
+            }
+
+            #editor {
+                font-size: 1rem
+            }
+        }
+
+        @media (min-width:768px) {
+            .form-inline .form-group {
+                display: inline-block;
+                margin-bottom: 0;
+                vertical-align: middle
+            }
+
+            .form-inline .form-control {
+                display: inline-block;
+                width: auto;
+                vertical-align: middle
+            }
+
+            .form-inline .input-group {
+                display: inline-table;
+                vertical-align: middle
+            }
+
+            .form-inline .input-group .input-group-addon,
+            .form-inline .input-group .input-group-btn,
+            .form-inline .input-group .form-control {
+                width: auto
+            }
+
+            .form-inline .input-group>.form-control {
+                width: 100%
+            }
+
+            .form-inline .control-label {
+                margin-bottom: 0;
+                vertical-align: middle
+            }
+
+            .form-inline .radio,
+            .form-inline .checkbox {
+                display: inline-block;
+                margin-top: 0;
+                margin-bottom: 0;
+                vertical-align: middle
+            }
+
+            .form-inline .radio label,
+            .form-inline .checkbox label {
+                padding-left: 0
+            }
+
+            .form-inline .radio input[type="radio"],
+            .form-inline .checkbox input[type="checkbox"] {
+                position: relative;
+                margin-left: 0
+            }
+
+            .form-inline .has-feedback .form-control-feedback {
+                top: 0
+            }
+
+            .form-horizontal .control-label {
+                text-align: right;
+                margin-bottom: 0;
+                padding-top: 7px
+            }
+
+            .form-horizontal .form-group-lg .control-label {
+                padding-top: 14.3px
+            }
+
+            .form-horizontal .form-group-sm .control-label {
+                padding-top: 6px
+            }
+
+            .modal-dialog {
+                width: 600px;
+                margin: 30px auto
+            }
+
+            .modal-content {
+                box-shadow: 0 5px 15px rgba(0, 0, 0, .5)
+            }
+
+            .modal-sm {
+                width: 300px
+            }
+        }
+
+        @media (min-width:992px) {
+            .modal-lg {
+                width: 900px
+            }
+        }
+
+        @media screen and (max-width:1200px) {
+            #_default_ {
+                max-width: 30%
+            }
+
+            #_default_ ._default_ {
+                font-size: .825rem;
+                line-height: .875rem;
+                padding: 12px 12px 6px 24px;
+                text-align: justify
+            }
+        }
+
+        @media screen and (max-width:1100px) {
+            #_default_ {
+                max-width: 27%
+            }
+
+            #_default_ ._default_ {
+                font-size: .8rem;
+                line-height: .85rem;
+                padding: 12px 6px 6px 24px;
+                text-align: justify
+            }
+        }
+
+        @media screen and (max-width:1000px) {
+            #_default_ {
+                max-width: 24%
+            }
+
+            #_default_ ._default_ {
+                font-size: .775rem;
+                line-height: .8rem;
+                padding: 12px 6px 6px 24px;
+                text-align: justify
+            }
+        }
+
+        @media screen and (max-width:900px) {
+            #_default_ {
+                max-width: 30%
+            }
+        }
+
+        @media screen and (max-width:767px) {
+            .table-responsive {
+                width: 100%;
+                margin-bottom: 15px;
+                overflow-y: hidden;
+                overflow-x: auto;
+                -ms-overflow-style: -ms-autohiding-scrollbar;
+                border: 1px solid #ddd;
+                -webkit-overflow-scrolling: touch
+            }
+
+            .table-responsive>.table {
+                margin-bottom: 0
+            }
+
+            .table-responsive>.table>thead>tr>th,
+            .table-responsive>.table>thead>tr>td,
+            .table-responsive>.table>tbody>tr>th,
+            .table-responsive>.table>tbody>tr>td,
+            .table-responsive>.table>tfoot>tr>th,
+            .table-responsive>.table>tfoot>tr>td {
+                white-space: nowrap
+            }
+
+            .table-responsive>.table-bordered {
+                border: 0
+            }
+
+            .table-responsive>.table-bordered>thead>tr>th:first-child,
+            .table-responsive>.table-bordered>thead>tr>td:first-child,
+            .table-responsive>.table-bordered>tbody>tr>th:first-child,
+            .table-responsive>.table-bordered>tbody>tr>td:first-child,
+            .table-responsive>.table-bordered>tfoot>tr>th:first-child,
+            .table-responsive>.table-bordered>tfoot>tr>td:first-child {
+                border-left: 0
+            }
+
+            .table-responsive>.table-bordered>thead>tr>th:last-child,
+            .table-responsive>.table-bordered>thead>tr>td:last-child,
+            .table-responsive>.table-bordered>tbody>tr>th:last-child,
+            .table-responsive>.table-bordered>tbody>tr>td:last-child,
+            .table-responsive>.table-bordered>tfoot>tr>th:last-child,
+            .table-responsive>.table-bordered>tfoot>tr>td:last-child {
+                border-right: 0
+            }
+
+            .table-responsive>.table-bordered>tbody>tr:last-child>th,
+            .table-responsive>.table-bordered>tbody>tr:last-child>td,
+            .table-responsive>.table-bordered>tfoot>tr:last-child>th,
+            .table-responsive>.table-bordered>tfoot>tr:last-child>td {
+                border-bottom: 0
+            }
+        }
+
+        @media screen and (max-width:720px) {
+            #_default_ {
+                max-width: 60%
+            }
+
+            #_default_ ._default_ {
+                font-size: .75rem;
+                line-height: 1rem;
+                padding: 12px 24px
+            }
+        }
+
+        @media screen and (max-width:620px) {
+            #_default_ {
+                max-width: 50%
+            }
+
+            #_default_ ._default_ {
+                font-size: .66rem;
+                letter-spacing: 1px;
+                line-height: 1rem;
+                padding: 10px 24px
+            }
+        }
+
+        @media screen and (max-width:520px) {
+            #_default_ ._default_ {
+                font-size: .4rem;
+                line-height: .875rem;
+                padding: 6px 12px 6px 24px;
+                text-align: justify
+            }
+        }
+
+        @media screen and (max-width:460px) {
+            #_default_ {
+                display: none
+            }
+        }
+
+        @media screen and (max-width:46.1875em) {
+            .editor-header {
+                display: none
+            }
+
+            .editor-header--first {
+                display: block;
+                width: 100%
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap&subset=vietnamese');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body id="preview">
+    <h1 class="code-line" data-line-start="0" data-line-end="1"><a
+            id="Unity_Cheat_Sheet_Tieng_Viet_0"></a>Unity_Cheat_Sheet_Tieng_Viet</h1>
+    <p class="has-line-data" data-line-start="1" data-line-end="2">Bản Unity cheat sheet phiên dịch cho cộng đồng người
+        Việt từ Naomi Le. Cảm ơn các bạn vì đã quan tâm.</p>
+    <h1 class="code-line" data-line-start="3" data-line-end="4"><a id="Unity_Cheat_Sheet_3"></a>Unity_Cheat_Sheet</h1>
+    <h2 class="code-line" data-line-start="4" data-line-end="5"><a id="Mc_lc_4"></a>Mục lục</h2>
+    <ul>
+        <li class="has-line-data" data-line-start="5" data-line-end="19"><a href="#c%C6%A1-b%E1%BA%A3n">Cơ bản</a>
+            <ul>
+                <li class="has-line-data" data-line-start="6" data-line-end="7"><a
+                        href="#ph%C3%ADm-t%E1%BA%AFt-unity">Phím tắt Unity</a></li>
+                <li class="has-line-data" data-line-start="7" data-line-end="8"><a
+                        href="#monobehaviour">MonoBehaviour</a></li>
+                <li class="has-line-data" data-line-start="8" data-line-end="9"><a
+                        href="#s%E1%BB%B1-ki%E1%BB%87n-v%E1%BA%ADt-l%C3%BD">Sự kiện vật lý (Physics Events)</a></li>
+                <li class="has-line-data" data-line-start="9" data-line-end="10"><a href="#serializing">Serializing</a>
+                </li>
+                <li class="has-line-data" data-line-start="10" data-line-end="11"><a
+                        href="#kh%E1%BB%9Fi-t%E1%BA%A1o">Khởi tạo</a></li>
+                <li class="has-line-data" data-line-start="11" data-line-end="12"><a
+                        href="#t%C3%ACm-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-trong-game">Tìm Đối Tượng Trong Game</a>
+                </li>
+                <li class="has-line-data" data-line-start="12" data-line-end="13"><a
+                        href="#h%E1%BB%A7y-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-tr%C3%B2-ch%C6%A1i">Hủy Đối Tượng Trò
+                        Chơi</a></li>
+                <li class="has-line-data" data-line-start="13" data-line-end="14"><a
+                        href="#c%C3%A1c-th%C3%A0nh-ph%E1%BA%A7n">Các Thành Phần (Components)</a></li>
+                <li class="has-line-data" data-line-start="14" data-line-end="15"><a
+                        href="#h%E1%BA%B1ng-s%E1%BB%91">Hằng Số (Constants)</a></li>
+                <li class="has-line-data" data-line-start="15" data-line-end="16"><a href="#vectors">Vectors</a></li>
+                <li class="has-line-data" data-line-start="16" data-line-end="17"><a href="#quaternion">Quaternion</a>
+                </li>
+                <li class="has-line-data" data-line-start="17" data-line-end="18"><a href="#g%C3%B3c-euler">Góc
+                        Euler</a></li>
+                <li class="has-line-data" data-line-start="18" data-line-end="19"><a
+                        href="#gi%E1%BB%AF-t%E1%BB%89-l%E1%BB%87-m%C3%A0n-h%C3%ACnh">Giữ Tỉ Lệ Màn Hình</a></li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="19" data-line-end="34"><a href="#di-chuy%E1%BB%83n--xoay">Di Chuyển
+                &amp; Xoay</a>
+            <ul>
+                <li class="has-line-data" data-line-start="20" data-line-end="25"><a
+                        href="#di-chuy%E1%BB%83n-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng">Di Chuyển Đối Tượng</a>
+                    <ul>
+                        <li class="has-line-data" data-line-start="21" data-line-end="22"><a
+                                href="#transformtranslate">Transform.Translate()</a></li>
+                        <li class="has-line-data" data-line-start="22" data-line-end="23"><a
+                                href="#vector3movetowards">Vector3.MoveTowards()</a></li>
+                        <li class="has-line-data" data-line-start="23" data-line-end="24"><a
+                                href="#vector3lerp">Vector3.Lerp()</a></li>
+                        <li class="has-line-data" data-line-start="24" data-line-end="25"><a
+                                href="#vector3smoothdamp">Vector3.SmoothDamp()</a></li>
+                    </ul>
+                </li>
+                <li class="has-line-data" data-line-start="25" data-line-end="34"><a
+                        href="#xoay-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng">Xoay Đối Tượng</a>
+                    <ul>
+                        <li class="has-line-data" data-line-start="26" data-line-end="27"><a
+                                href="#transformrotation">Transform.rotation</a></li>
+                        <li class="has-line-data" data-line-start="27" data-line-end="28"><a
+                                href="#transformeulerangles">Transform.eulerAngles</a></li>
+                        <li class="has-line-data" data-line-start="28" data-line-end="29"><a
+                                href="#transformrotate">Transform.Rotate()</a></li>
+                        <li class="has-line-data" data-line-start="29" data-line-end="30"><a
+                                href="#transformrotatearound">Transform.RotateAround()</a></li>
+                        <li class="has-line-data" data-line-start="30" data-line-end="31"><a
+                                href="#transformlookat">Transform.LookAt()</a></li>
+                        <li class="has-line-data" data-line-start="31" data-line-end="32"><a
+                                href="#quaternionlookrotation">Quaternion.LookRotation()</a></li>
+                        <li class="has-line-data" data-line-start="32" data-line-end="33"><a
+                                href="#quaternionfromtorotation">Quaternion.FromToRotation()</a></li>
+                        <li class="has-line-data" data-line-start="33" data-line-end="34"><a
+                                href="#quaterniontoangleaxis">Quaternion.ToAngleAxis()</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="34" data-line-end="38"><a href="#input">Input</a>
+            <ul>
+                <li class="has-line-data" data-line-start="35" data-line-end="36"><a href="#b%C3%A0n-ph%C3%ADm">Bàn
+                        Phím</a></li>
+                <li class="has-line-data" data-line-start="36" data-line-end="37"><a href="#chu%E1%BB%99t">Chuột</a>
+                </li>
+                <li class="has-line-data" data-line-start="37" data-line-end="38"><a href="#ch%E1%BA%A1m">Chạm</a></li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="38" data-line-end="41"><a
+                href="#giao-di%E1%BB%87n-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-ui">Giao Diện Người Dùng (UI)</a>
+            <ul>
+                <li class="has-line-data" data-line-start="39" data-line-end="40"><a href="#n%C3%BAt-button">Nút
+                        (Button)</a></li>
+                <li class="has-line-data" data-line-start="40" data-line-end="41"><a
+                        href="#thanh-tr%C6%B0%E1%BB%A3t-slider">Thanh Trượt (Slider)</a></li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="41" data-line-end="43"><a href="#%C3%A2m-thanh">Âm Thanh</a>
+            <ul>
+                <li class="has-line-data" data-line-start="42" data-line-end="43"><a
+                        href="#ch%C6%A1i-%C3%A2m-thanh-c%C6%A1-b%E1%BA%A3n">Chơi Âm Thanh Cơ Bản</a></li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="43" data-line-end="45"><a
+                href="#m%C3%B4-h%C3%ACnh-thi%E1%BA%BFt-k%E1%BA%BF">Mô Hình Thiết Kế</a>
+            <ul>
+                <li class="has-line-data" data-line-start="44" data-line-end="45"><a href="#singleton">Singleton</a>
+                </li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="45" data-line-end="46"><a
+                href="#c%C3%A1c-%E1%BB%A9ng-d%E1%BB%A5ng-th%E1%BB%B1c-t%E1%BA%BF">Các Ứng Dụng Thực Tế</a></li>
+        <li class="has-line-data" data-line-start="46" data-line-end="48"><a href="#refernces">Refernces</a></li>
+    </ul>
+    <h2 class="code-line" data-line-start="48" data-line-end="49"><a id="C_Bn_48"></a>Cơ Bản</h2>
+    <h3 class="code-line" data-line-start="50" data-line-end="51"><a id="Phm_tt_Unity_50"></a>Phím tắt Unity</h3>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Hành động</th>
+                <th>Phím tắt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Công cụ Xem (View Tool</td>
+                <td>Q</td>
+            </tr>
+            <tr>
+                <td>Công cụ Di Chuyển (Move Tool)</td>
+                <td>W</td>
+            </tr>
+            <tr>
+                <td>Công cụ Xoay (Rotate Tool)</td>
+                <td>E</td>
+            </tr>
+            <tr>
+                <td>Công cụ Thay Đổi Kích Thước (Scale Tool)</td>
+                <td>R</td>
+            </tr>
+            <tr>
+                <td>Công cụ Hình Chữ Nhật (Rect Tool)</td>
+                <td>T</td>
+            </tr>
+            <tr>
+                <td>Công cụ Biến Đổi (Transform Tool)</td>
+                <td>Y</td>
+            </tr>
+            <tr>
+                <td>Đối Tượng Trò Chơi Mới (New Game Object)</td>
+                <td>Windows: CTRL + SHIFT + N &lt;br&gt; Mac: CMD + SHIFT + N</td>
+            </tr>
+            <tr>
+                <td>Đối Tượng Con Mới (New Child Game Object)</td>
+                <td>ALT + SHIFT + N</td>
+            </tr>
+            <tr>
+                <td>Nhân Bản (Duplicate)</td>
+                <td>Windows: CTRL + D &lt;br&gt; Mac: CMD +D</td>
+            </tr>
+            <tr>
+                <td>Chuyển đổi Kích thước cửa sổ (Toggle Window Size)</td>
+                <td>SHIFT + SPACE</td>
+            </tr>
+            <tr>
+                <td>Chơi/Tạm Dừng (Play/Pause)</td>
+                <td>Windows: CTRL + P &lt;br&gt; Mac: CMD + P</td>
+            </tr>
+            <tr>
+                <td>Tập Trung Đối Tượng Trò Chơi (Focus Game Object)</td>
+                <td>F</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 class="code-line" data-line-start="66" data-line-end="67"><a id="Visual_Studio_Code_66"></a>Visual Studio Code
+    </h3>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Hành động</th>
+                <th>Phím tắt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Command Palette</td>
+                <td>Windows: CTRL + SHIFT + P Mac: CMD + SHIFT + P</td>
+            </tr>
+            <tr>
+                <td>Quick File Open</td>
+                <td>Windows: CTRL + P Mac: CMD + P</td>
+            </tr>
+            <tr>
+                <td>Toggle Sidebar</td>
+                <td>Windows: CTRL + B Mac: CMD + B</td>
+            </tr>
+            <tr>
+                <td>Multi-Select Cursor</td>
+                <td>Windows: CTRL + D Mac: CMD + D</td>
+            </tr>
+            <tr>
+                <td>Copy Line</td>
+                <td>Windows: SHIFT + ALT + UP or SHIFT + ALT + DOWN Mac: OPT + SHIFT + UP or OPT + SHIFT + DOWN</td>
+            </tr>
+            <tr>
+                <td>Comment Code Block</td>
+                <td>Windows: SHIFT + ALT + A (Multi-line comment), CTRL + K + C (Single-line comment) Mac: SHIFT + OPT +
+                    A</td>
+            </tr>
+            <tr>
+                <td>Show All Symbols</td>
+                <td>Windows: CTRL + T Mac: CMD + T</td>
+            </tr>
+            <tr>
+                <td>Trigger suggestion and parameter hints</td>
+                <td>Windows: Ctrl + Space, Ctrl + Shift + Space Mac: CMD + Space, CMD + Shift + Space</td>
+            </tr>
+            <tr>
+                <td>Show References</td>
+                <td>Windows: Shift + F12 Mac: Shift + F12</td>
+            </tr>
+            <tr>
+                <td>Global Find</td>
+                <td>Windows: CTRL + SHIFT + F Mac: CMD + SHIFT + F</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 class="code-line" data-line-start="81" data-line-end="82"><a
+            id="MonoBehaviourhttpsdocsunity3dcomScriptReferenceMonoBehaviourhtml_81"></a><a
+            href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.html">MonoBehaviour</a></h3>
+    <p class="has-line-data" data-line-start="82" data-line-end="83"><a
+            href="https://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg">Đồ thị vòng Lifecycle của
+            MonoBehaviour</a></p>
+    <p class="has-line-data" data-line-start="84" data-line-end="85">Tất cả
+        các thành phần được thừa kế từ lớp MonoBehaviour thực hiện một loạt các
+        hàm sự kiện theo một thứ tự xác định. Các hàm này bao gồm:</p>
+    <pre><code class="has-line-data" data-line-start="86" data-line-end="99">Awake(): Được gọi sau khi một đối tượng trò chơi được khởi tạo.
+OnEnable(): Được gọi khi một đối tượng trò chơi được kích hoạt.
+Start(): Được gọi trước khi khung hình đầu tiên được cập nhật.
+Update(): Gọi mỗi khung hình.
+LateUpdate(): Được gọi mỗi khung hình sau khi hà<span class="hljs-function">m <span class="hljs-title">Update</span>(<span class="hljs-params"></span>).
+<span class="hljs-title">OnBecameVisible</span>(<span class="hljs-params"></span>): Được gọi khi đối tượng trò chơi hiện tại trở nên hiển thị thông qua bất kỳ camera nào.
+<span class="hljs-title">OnBecameInvisible</span>(<span class="hljs-params"></span>): Được gọi khi đối tượng trò chơi hiện tại không còn hiển thị qua bất kỳ camera nào.
+<span class="hljs-title">OnDrawGizmos</span>(<span class="hljs-params"></span>): Được gọi để vẽ gizmos trong cửa sổ scene.
+<span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>): Được gọi nhiều lần cho các sự kiện GUI.
+<span class="hljs-title">OnApplicationPause</span>(<span class="hljs-params"></span>): Được gọi khi trò chơi tạm dừng thông qua Unity editor.
+<span class="hljs-title">OnDisable</span>(<span class="hljs-params"></span>): Thực thi khi đối tượng trò chơi bị tắt.
+<span class="hljs-title">OnDestroy</span>(<span class="hljs-params"></span>): Được kích hoạt khi đối tượng trò chơi bị hủy.
+</span></code></pre>
+    <p class="has-line-data" data-line-start="99" data-line-end="100">Có một hàm vòng đời được gọi là
+        <code>FixedUpdate</code>, được kích hoạt một số lần cố định mỗi giây. Bạn có thể cấu hình tần suất trong
+        <code>Edit ▸ Project Settings ▸ Time ▸ Fixed Timestep</code>.
+    </p>
+    <h2 class="code-line" data-line-start="101" data-line-end="102"><a id="S_kin_vt_l_101"></a>Sự kiện vật lý</h2>
+    <p class="has-line-data" data-line-start="102" data-line-end="103">Nếu
+        bạn thêm một thành phần collider vào một đối tượng trong game, bạn có
+        thể phát hiện sự kiện va chạm từ các thành phần của bạn bằng cách định
+        nghĩa một bộ phận cụ thể của các phương thức. Các phương thức sau chỉ
+        được gọi khi bạn có một Collider hoặc Rigid Body component trên cả hai
+        đối tượng trong game.</p>
+    <ul>
+        <li class="has-line-data" data-line-start="103" data-line-end="104">OnCollisionEnter - Phương thức này được gọi
+            một lần khi một đối tượng khác va chạm với đối tượng game hiện tại.</li>
+        <li class="has-line-data" data-line-start="104" data-line-end="105">OnCollisionStay - Phương thức này được gọi
+            trong mỗi khung hình khi một đối tượng khác va chạm với đối tượng game hiện tại.</li>
+        <li class="has-line-data" data-line-start="105" data-line-end="107">OnCollisionExit - Phương thức này được gọi
+            một lần khi một đối tượng rời khỏi vùng va chạm của đối tượng hiện tại.</li>
+    </ul>
+    <pre><code class="has-line-data" data-line-start="108" data-line-end="118"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnCollisionEnter</span>(<span class="hljs-params">Collision hit</span>) </span>{
+  Debug.Log($<span class="hljs-string">"{gameObject.name} hits {hit.gameObject.name}"</span>);
+}
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnCollisionStay</span>(<span class="hljs-params">Collision hit</span>) </span>{
+  Debug.Log($<span class="hljs-string">"{gameObject.name} is hitting {hit.gameObject.name}"</span>);
+}
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnCollisionExit</span>(<span class="hljs-params">Collision hit</span>) </span>{
+  Debug.Log($<span class="hljs-string">"{gameObject.name} stopped hitting {hit.gameObject.name}"</span>);
+}
+</code></pre>
+    <p class="has-line-data" data-line-start="118" data-line-end="122">Các hàm sau chỉ được gọi khi tùy chọn “On
+        Trigger” được bật từ thành phần collider tương ứng.<br>
+        -OnTriggerEnter - Hàm này được gọi khi một đối tượng khác va chạm với đối tượng game hiện tại.<br>
+        -OnTriggerStay - Hàm này được gọi trong mỗi khung hình khi một đối tượng khác va chạm với đối tượng game hiện
+        tại.<br>
+        -OnTriggerExit - Hàm này được gọi một lần khi một đối tượng rời khỏi vùng va chạm của đối tượng hiện tại.</p>
+    <pre><code class="has-line-data" data-line-start="123" data-line-end="133"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnTriggerEnter</span>(<span class="hljs-params">Collider hit</span>) </span>{
+  Debug.Log($<span class="hljs-string">"{gameObject.name} hits {hit.gameObject.name}"</span>);
+}
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnTriggerStay</span>(<span class="hljs-params">Collider hit</span>) </span>{
+  Debug.Log($<span class="hljs-string">"{gameObject.name} is hitting {hit.gameObject.name}"</span>);
+}
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnTriggerExit</span>(<span class="hljs-params">Collider hit</span>) </span>{
+  Debug.Log($<span class="hljs-string">"{gameObject.name} stopped hitting {hit.gameObject.name}"</span>);
+}
+</code></pre>
+    <p class="has-line-data" data-line-start="133" data-line-end="134">Cuối
+        cùng, có các hàm tương ứng cho các collider 2D. Các hàm này chia sẻ cùng
+        tên với các hàm 3D, nhưng có từ “2D” được thêm vào cuối. Tương tự, kiểu
+        tham số cũng giống nhau, nhưng thay vì Collision, ta có Collision2D.</p>
+    <ul>
+        <li class="has-line-data" data-line-start="134" data-line-end="135">OnCollisionEnter2D</li>
+        <li class="has-line-data" data-line-start="135" data-line-end="136">OnCollisionStay2D</li>
+        <li class="has-line-data" data-line-start="136" data-line-end="137">OnCollisionExit2D</li>
+        <li class="has-line-data" data-line-start="137" data-line-end="138">OnTriggerEnter2D</li>
+        <li class="has-line-data" data-line-start="138" data-line-end="139">OnTriggerStay2D</li>
+        <li class="has-line-data" data-line-start="139" data-line-end="140">OnTriggerExit2D</li>
+    </ul>
+    <pre><code class="has-line-data" data-line-start="141" data-line-end="160"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnCollisionEnter2D</span>(<span class="hljs-params">Collision2D hit</span>) </span>{
+  Debug.Log($<span class="hljs-string">"{gameObject.name} hits {hit.gameObject.name}"</span>);
+}
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnCollisionStay2D</span>(<span class="hljs-params">Collision2D hit</span>) </span>{
+  Debug.Log($<span class="hljs-string">"{gameObject.name} is hitting {hit.gameObject.name}"</span>);
+}
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnCollisionExit2D</span>(<span class="hljs-params">Collision2D hit</span>) </span>{
+  Debug.Log($<span class="hljs-string">"{gameObject.name} stopped hitting {hit.gameObject.name}"</span>);
+}
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnTriggerEnter2D</span>(<span class="hljs-params">Collision2D hit</span>) </span>{
+  Debug.Log($<span class="hljs-string">"{gameObject.name} hits {hit.gameObject.name}"</span>);
+}
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnTriggerStay2D</span>(<span class="hljs-params">Collision2D hit</span>) </span>{
+  Debug.Log($<span class="hljs-string">"{gameObject.name} is hitting {hit.gameObject.name}"</span>);
+}
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnTriggerExit2D</span>(<span class="hljs-params">Collision2D hit</span>) </span>{
+  Debug.Log($<span class="hljs-string">"{gameObject.name} stopped hitting {hit.gameObject.name}"</span>);
+}
+</code></pre>
+    <h3 class="code-line" data-line-start="161" data-line-end="162"><a id="Serializing_161"></a>Serializing</h3>
+    <p class="has-line-data" data-line-start="162" data-line-end="163">Unity
+        có khả năng serialize các biến, chuyển đổi dữ liệu thành một định dạng
+        có thể chỉnh sửa từ trình soạn thảo Unity. Quá trình serialization phụ
+        thuộc vào các thuộc tính hoặc các trình điều khiển truy cập được áp dụng
+        cho biến.</p>
+    <p class="has-line-data" data-line-start="164" data-line-end="165">Nếu một biến là public, nó sẽ được tự động
+        serialize:</p>
+    <pre><code class="has-line-data" data-line-start="167" data-line-end="169"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> age = <span class="hljs-number">10</span>;
+</code></pre>
+    <p class="has-line-data" data-line-start="170" data-line-end="171">Nếu bạn không muốn biến public được serialize,
+        bạn có thể sử dụng thuộc tính NonSerialized từ namespace System như sau:</p>
+    <pre><code class="has-line-data" data-line-start="173" data-line-end="175">[NonSerialized] <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> age = <span class="hljs-number">10</span>;
+</code></pre>
+    <p class="has-line-data" data-line-start="176" data-line-end="177">Biến
+        private không được serialize mặc định. Tuy nhiên, nếu bạn muốn chúng
+        được serialize, Unity có một thuộc tính gọi là SerializeField trong
+        namespace Unity. Bạn có thể áp dụng nó như sau:</p>
+    <pre><code class="has-line-data" data-line-start="179" data-line-end="181">[SerializeField] <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age = <span class="hljs-number">10</span>;
+</code></pre>
+    <h2 class="code-line" data-line-start="181" data-line-end="182"><a id="Khi_to_181"></a>Khởi tạo</h2>
+    <p class="has-line-data" data-line-start="182" data-line-end="183">Các đối tượng game mới có thể được chèn vào cảnh
+        một cách tự động thông qua việc gọi hàm sau. Hàm này có ba đối số.</p>
+    <ul>
+        <li class="has-line-data" data-line-start="184" data-line-end="185">Đối tượng Game - The Game Object</li>
+        <li class="has-line-data" data-line-start="185" data-line-end="186">(Optional) Vị trí Toàn cầu - Global Position
+        </li>
+        <li class="has-line-data" data-line-start="186" data-line-end="187">(Optional) Quay - Rotation</li>
+    </ul>
+    <pre><code class="has-line-data" data-line-start="188" data-line-end="192">Instantiate(someGameObject);
+Instantiate(someGameObject, <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>));
+Instantiate(someGameObject, <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>), Quaternion.identity);
+</code></pre>
+    <h2 class="code-line" data-line-start="192" data-line-end="193"><a id="Tm_i_Tng_Trong_Game_192"></a>Tìm Đối Tượng
+        Trong Game</h2>
+    <p class="has-line-data" data-line-start="193" data-line-end="194">Lớp GameObject có một số phương thức để tìm kiếm
+        đối tượng game trong cấu trúc thư mục.</p>
+    <ul>
+        <li class="has-line-data" data-line-start="195" data-line-end="196">Find() - Tìm kiếm một đối tượng game dựa
+            trên tên của nó.</li>
+        <li class="has-line-data" data-line-start="196" data-line-end="197">FindGameObjectsWithTag()
+            - Tìm nhiều đối tượng game được lưu trữ trong một mảng và trả về. Sử
+            dụng tag của đối tượng game để tìm chúng.</li>
+        <li class="has-line-data" data-line-start="197" data-line-end="198">FindWithTag() - Tìm một đối tượng game dựa
+            trên tag của nó.</li>
+    </ul>
+    <pre><code class="has-line-data" data-line-start="199" data-line-end="203">GameObject myObj = GameObject.Find(<span class="hljs-string">"NAME IN HIERARCHY"</span>);
+GameObject myObj = GameObject.FindGameObjectsWithTag(<span class="hljs-string">"TAG"</span>);
+GameObject myObj = GameObject.FindWithTag(<span class="hljs-string">"TAG"</span>);
+</code></pre>
+    <h2 class="code-line" data-line-start="204" data-line-end="205"><a id="Hy_i_Tng_Tr_Chi_204"></a>Hủy Đối Tượng Trò
+        Chơi</h2>
+    <p class="has-line-data" data-line-start="205" data-line-end="206">Đối tượng game có thể bị hủy bằng cách gọi hàm
+        Destroy():</p>
+    <pre><code class="has-line-data" data-line-start="207" data-line-end="209">Destroy(gameObject);
+</code></pre>
+    <h2 class="code-line" data-line-start="209" data-line-end="210"><a id="Cc_Thnh_Phn_Components_209"></a>Các Thành
+        Phần (Components)</h2>
+    <p class="has-line-data" data-line-start="210" data-line-end="211">Các
+        đối tượng game tự nhiên không có nhiều chức năng. Chúng ta cần thêm các
+        thành phần để có các chức năng cụ thể. Nếu bạn đang sử dụng các thành
+        phần tùy chỉnh và cần chọn lựa các thành phần khác, Unity cung cấp cách
+        để lấy chúng. Phương pháp đầu tiên là sử dụng hàm GetComponent(), thường
+        bằng cách chỉ định tên lớp thành phần.</p>
+    <pre><code class="has-line-data" data-line-start="212" data-line-end="214">AudioSource audioSource = GetComponent&lt;AudioSource&gt;();
+</code></pre>
+    <p class="has-line-data" data-line-start="214" data-line-end="215">Hoặc bạn có thể sử dụng từ khóa typeof và xác
+        nhận giá trị như sau:</p>
+    <pre><code class="has-line-data" data-line-start="216" data-line-end="218">AudioSource audioSource = GetComponent(<span class="hljs-keyword">typeof</span>(AudioSource)) <span class="hljs-keyword">as</span> AudioSource;
+</code></pre>
+    <p class="has-line-data" data-line-start="218" data-line-end="219">Cuối cùng, bạn có thể truyền vào tên của thành
+        phần dưới dạng chuỗi như sau:</p>
+    <pre><code class="has-line-data" data-line-start="220" data-line-end="222">AudioSource audioSource = GetComponent(<span class="hljs-string">"AudioSource"</span>) <span class="hljs-keyword">as</span> AudioSource;
+</code></pre>
+    <h2 class="code-line" data-line-start="222" data-line-end="223"><a id="Hng_S_Constants_222"></a>Hằng Số (Constants)
+    </h2>
+    <p class="has-line-data" data-line-start="223" data-line-end="224">Trong
+        Unity, bạn có thể sử dụng hằng số để định nghĩa các giá trị giữ nguyên
+        trong toàn bộ kịch bản của bạn. Dưới đây là cách bạn có thể sử dụng hằng
+        số trong Unity:</p>
+    <ol>
+        <li class="has-line-data" data-line-start="225" data-line-end="227">Khai Báo Một Hằng Số:<br>
+            Sử dụng từ khoá const để khai báo một hằng số. Hằng số phải được khởi
+            tạo giá trị tại thời điểm khai báo và không thể thay đổi sau đó. Dưới
+            đây là một ví dụ:</li>
+    </ol>
+    <pre><code class="has-line-data" data-line-start="228" data-line-end="240"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ExampleScript</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    <span class="hljs-comment">// Define a constant for gravity</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">float</span> Gravity = <span class="hljs-number">9.8</span>f;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-comment">// Use the constant in your code</span>
+        <span class="hljs-keyword">float</span> fallSpeed = Gravity * Time.deltaTime;
+    }
+}
+</code></pre>
+    <ol start="2">
+        <li class="has-line-data" data-line-start="240" data-line-end="243">
+            <p class="has-line-data" data-line-start="240" data-line-end="242">Lợi Ích của Hằng Số:<br>
+                Hằng số mang lại những lợi ích quan trọng khi định nghĩa các giá trị
+                được sử dụng ở nhiều nơi trong mã của bạn và không nên được sửa đổi
+                trong thời gian chạy. Chúng giúp mã của bạn trở nên dễ đọc và dễ bảo trì
+                hơn.</p>
+        </li>
+        <li class="has-line-data" data-line-start="243" data-line-end="246">
+            <p class="has-line-data" data-line-start="243" data-line-end="245">Sử Dụng Trong Unity:<br>
+                Bạn có thể sử dụng hằng số trong nhiều kịch bản Unity khác nhau, chẳng
+                hạn như các kịch bản MonoBehaviour được đính kèm vào GameObjects hoặc
+                các kịch bản tiện ích. Hằng số thường được sử dụng cho các giá trị như
+                tốc độ mặc định, kích thước cố định hoặc các tham số không thay đổi
+                khác.</p>
+        </li>
+        <li class="has-line-data" data-line-start="246" data-line-end="249">
+            <p class="has-line-data" data-line-start="246" data-line-end="248">Phạm Vi của Hằng Số:<br>
+                Hằng số có phạm vi giới hạn trong lớp hoặc phương thức mà chúng được
+                khai báo. Nếu bạn cần hằng số có thể truy cập từ nhiều kịch bản, hãy xem
+                xét việc sử dụng một lớp public static.</p>
+        </li>
+    </ol>
+    <p class="has-line-data" data-line-start="249" data-line-end="250">Dưới đây là một ví dụ đơn giản:</p>
+    <pre><code class="has-line-data" data-line-start="251" data-line-end="275"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">GameConstants</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MaxScore = <span class="hljs-number">100</span>;
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ScoreManager</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-comment">// Access the constant from another script</span>
+        <span class="hljs-keyword">int</span> currentScore = CalculateScore();
+        <span class="hljs-keyword">if</span> (currentScore &gt;= GameConstants.MaxScore)
+        {
+            Debug.Log(<span class="hljs-string">"You reached the maximum score!"</span>);
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">CalculateScore</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-comment">// Your score calculation logic here</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">50</span>;
+    }
+}
+</code></pre>
+    <h2 class="code-line" data-line-start="275" data-line-end="276"><a id="Vectors_275"></a>Vectors</h2>
+    <p class="has-line-data" data-line-start="276" data-line-end="277">Vectors
+        quyết định vị trí của các đối tượng trong game và hỗ trợ trong các phép
+        tính về khoảng cách và chuyển động. Unity có hai lớp vector: Vector2
+        cho các trò chơi 2D với tọa độ (x, y), và Vector3 cho các trò chơi 3D
+        với tọa độ (x, y, z). Trong các lớp này, X đại diện cho Bên trái/Phải, Y
+        biểu thị Lên/Xuống, và Z cho Tiến lên/Lùi lại. Unity cung cấp các hằng
+        số có thể truy cập từ lớp vector tương ứng.</p>
+    <h4 class="code-line" data-line-start="277" data-line-end="278"><a id="Vector_3_277"></a>Vector 3</h4>
+    <pre><code class="has-line-data" data-line-start="279" data-line-end="281">Vector3 V = <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>f; <span class="hljs-number">0</span>f; <span class="hljs-number">0</span>f);
+</code></pre>
+    <pre><code class="has-line-data" data-line-start="282" data-line-end="291">Vector3.right <span class="hljs-comment">/* (1, 0, 0)  */</span>
+Vector3.left <span class="hljs-comment">/* (-1, 0, 0)  */</span>
+Vector3.up <span class="hljs-comment">/* (0, 1, 0)  */</span>
+Vector3.down <span class="hljs-comment">/* (0, -1, 0)  */</span>
+Vector3.forward <span class="hljs-comment">/* (0, 0, 1)  */</span>
+Vector3.back <span class="hljs-comment">/* (0, 0, -1) */</span>
+Vector3.zero <span class="hljs-comment">/* (0, 0, 0)  */</span>
+Vector3.one <span class="hljs-comment">/* (1, 1, 1)  */</span>
+</code></pre>
+    <h4 class="code-line" data-line-start="291" data-line-end="292"><a id="Vector_2_291"></a>Vector 2</h4>
+    <pre><code class="has-line-data" data-line-start="294" data-line-end="301">Vector2.right <span class="hljs-comment">/* (1, 0)  */</span>
+Vector2.left  <span class="hljs-comment">/* (-1, 0) */</span>
+Vector2.up    <span class="hljs-comment">/* (0, 1)  */</span>
+Vector2.down  <span class="hljs-comment">/* (0, -1) */</span>
+Vector2.zero  <span class="hljs-comment">/* (0, 0)  */</span>
+Vector2.one   <span class="hljs-comment">/* (1, 1)  */</span>
+</code></pre>
+    <p class="has-line-data" data-line-start="301" data-line-end="302">Nếu bạn chỉ quan tâm đến hướng của một vector cụ
+        thể, bạn có thể truy cập thuộc tính normalized của nó như sau:</p>
+    <pre><code class="has-line-data" data-line-start="303" data-line-end="305">myVector.normalized
+</code></pre>
+    <p class="has-line-data" data-line-start="305" data-line-end="306">Khoảng cách giữa hai vector có thể được tính bằng
+        phương thức Vector3.Distance(), trả về một giá trị kiểu float:</p>
+    <pre><code class="has-line-data" data-line-start="307" data-line-end="309"><span class="hljs-keyword">float</span> distance = Vector3.Distance(vectorOne, vectorTwo);
+</code></pre>
+    <h3 class="code-line" data-line-start="309" data-line-end="310"><a id="Quaternion_309"></a>Quaternion</h3>
+    <p class="has-line-data" data-line-start="310" data-line-end="311">Quaternions
+        điều khiển xoay của game object. Bạn có thể kiểm tra hoặc thay đổi xoay
+        của đối tượng bằng cách sử dụng transform.rotation. Hàm
+        Quaternion.LookRotation() của Unity tạo ra một xoay dựa trên một vị trí
+        mục tiêu.</p>
+    <pre><code class="has-line-data" data-line-start="312" data-line-end="314">Quaternion.LookRotation(gameObjectPosition);
+</code></pre>
+    <p class="has-line-data" data-line-start="314" data-line-end="315">Một xoay 30 độ quanh trục y:</p>
+    <pre><code class="has-line-data" data-line-start="316" data-line-end="318">Quaternion rotation = Quaternion.Euler(<span class="hljs-number">0</span>, <span class="hljs-number">30</span>, <span class="hljs-number">0</span>);
+</code></pre>
+    <h3 class="code-line" data-line-start="318" data-line-end="319"><a id="Gc_Euler_318"></a>Góc Euler</h3>
+    <p class="has-line-data" data-line-start="319" data-line-end="320">Góc
+        Euler là “góc độ” như 90, 180, 45, 30 độ. Tuy nhiên, quaternion khác
+        biệt so với góc Euler ở chỗ nó biểu diễn một điểm trên Mặt cầu Đơn vị
+        (bán kính là 1 đơn vị).</p>
+    <p class="has-line-data" data-line-start="321" data-line-end="322">Ví dụ sử dụng Quaternion để biểu diễn 30 độ xoay
+        quanh trục X và 10 độ xoay quanh trục Y:</p>
+    <pre><code class="has-line-data" data-line-start="323" data-line-end="325">Quaternion rotation = Quaternion.Euler(<span class="hljs-number">30</span>, <span class="hljs-number">10</span>, <span class="hljs-number">0</span>);
+</code></pre>
+    <p class="has-line-data" data-line-start="325" data-line-end="326">Sử dụng một Vector để biểu diễn cũng là một cách
+        khác:</p>
+    <pre><code class="has-line-data" data-line-start="327" data-line-end="330">Vector3 EulerRotation = <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">30</span>, <span class="hljs-number">10</span>, <span class="hljs-number">0</span>);
+Quaternion rotation = Quaternion.Euler(EulerRotation);
+</code></pre>
+    <p class="has-line-data" data-line-start="330" data-line-end="331">Chuyển đổi góc Quaternion của một transform thành
+        góc Euler</p>
+    <pre><code class="has-line-data" data-line-start="332" data-line-end="335">Quaternion quaternionAngles = transform.rotation;
+Vector3 eulerAngles = quaternionAngles.eulerAngles;
+</code></pre>
+    <h3 class="code-line" data-line-start="335" data-line-end="336"><a id="Gi_T_L_Mn_Hnh_335"></a>Giữ Tỉ Lệ Màn Hình
+    </h3>
+    <pre><code class="has-line-data" data-line-start="337" data-line-end="369"><span class="hljs-keyword">using</span> System.Collections;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> UnityEngine;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ScaleBackground</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    <span class="hljs-keyword">private</span> SpriteRenderer background;
+    <span class="hljs-keyword">private</span> Camera cam;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)
+    </span>{
+        background = GetComponent&lt;SpriteRenderer&gt;();
+        cam = Camera.main;
+
+        <span class="hljs-comment">// Lấy kích thước của camera</span>
+        <span class="hljs-keyword">float</span> cameraHeight = <span class="hljs-number">2</span>f * cam.orthographicSize;
+        <span class="hljs-keyword">float</span> cameraWidth = cameraHeight * cam.aspect;
+
+        <span class="hljs-comment">// Lấy kích thước của nền hiện tại</span>
+        <span class="hljs-keyword">float</span> bgHeight = background.sprite.bounds.size.y;
+        <span class="hljs-keyword">float</span> bgWidth = background.sprite.bounds.size.x;
+
+        <span class="hljs-comment">// Tính tỉ lệ tỷ lệ</span>
+        <span class="hljs-keyword">float</span> scaleX = cameraWidth / bgWidth;
+        <span class="hljs-keyword">float</span> scaleY = cameraHeight / bgHeight;
+
+        <span class="hljs-comment">// Áp dụng tỷ lệ cho nền</span>
+        transform.localScale = <span class="hljs-keyword">new</span> Vector3(scaleX, scaleY, <span class="hljs-number">1</span>f);
+    }
+  }
+}
+</code></pre>
+    <h2 class="code-line" data-line-start="369" data-line-end="370"><a id="Di_Chuyn__Xoay_369"></a>Di Chuyển &amp; Xoay
+    </h2>
+    <h3 class="code-line" data-line-start="370" data-line-end="371"><a id="Di_Chuyn_i_Tng_370"></a>Di Chuyển Đối Tượng
+    </h3>
+    <h4 class="code-line" data-line-start="371" data-line-end="372"><a
+            id="TransformTranslate_371"></a>Transform.Translate()</h4>
+    <pre><code class="has-line-data" data-line-start="373" data-line-end="379"><span class="hljs-comment">// Cũng có thể nhảy bằng cách đặt nút Space trong Input Manager</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Translate</span>(<span class="hljs-params">Vector3 translation</span>)</span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Translate</span>(<span class="hljs-params">Vector3 translation, Space relativeTo = Space.Self</span>)</span>;
+
+transform.Translate(Vector3.right * movementSpeed);
+</code></pre>
+    <h4 class="code-line" data-line-start="380" data-line-end="381"><a
+            id="Vector3MoveTowards_380"></a>Vector3.MoveTowards()</h4>
+    <pre><code class="has-line-data" data-line-start="382" data-line-end="389"><span class="hljs-comment">// Tính toán vị trí giữa các điểm được chỉ định bởi current và target</span>
+<span class="hljs-comment">// Di chuyển không xa hơn khoảng cách được chỉ định bởi maxDistanceDelta</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Vector3 <span class="hljs-title">MoveTowards</span>(<span class="hljs-params">Vector3 current, Vector3 target, <span class="hljs-keyword">float</span> maxDistanceDelta</span>)</span>;
+
+Vector3 targetPosition;
+transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime);
+</code></pre>
+    <h4 class="code-line" data-line-start="390" data-line-end="391"><a id="Vector3Lerp_390"></a>Vector3.Lerp()</h4>
+    <pre><code class="has-line-data" data-line-start="392" data-line-end="400"><span class="hljs-comment">// Nội suy tuyến tính giữa hai điểm. Kết quả là một chuyển động mượt mà.</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Vector3 <span class="hljs-title">Lerp</span>(<span class="hljs-params">Vector3 startValue, Vector3 endValue, <span class="hljs-keyword">float</span> interpolationRatio</span>)</span>;
+
+Vector3 targetPosition;
+<span class="hljs-keyword">float</span> t = <span class="hljs-number">0</span>;
+t += Time.deltaTime * speed;
+transform.position = Vector3.Lerp(transform.position, targetPosition, t);
+</code></pre>
+    <h4 class="code-line" data-line-start="401" data-line-end="402"><a
+            id="Vector3SmoothDamp_401"></a>Vector3.SmoothDamp()</h4>
+    <pre><code class="has-line-data" data-line-start="403" data-line-end="414"><span class="hljs-comment">// Dần dần thay đổi một vector đến một mục tiêu mong muốn trong thời gian.</span>
+<span class="hljs-comment">// Vector được làm mịn bằng một hàm giống như lò xo-dẫn, sẽ không bao giờ vượt quá.</span>
+<span class="hljs-comment">// Sử dụng phổ biến nhất là để làm mịn cho camera theo dõi.</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Vector3 <span class="hljs-title">SmoothDamp</span>(<span class="hljs-params">Vector3 current, Vector3 target, <span class="hljs-keyword">ref</span> Vector3 currentVelocity, <span class="hljs-keyword">float</span> smoothTime, <span class="hljs-keyword">float</span> maxSpeed = Mathf.Infinity, <span class="hljs-keyword">float</span> deltaTime = Time.deltaTime</span>)</span>;
+
+<span class="hljs-keyword">float</span> smoothTime = <span class="hljs-number">1</span>f;
+Vector3 velocity;
+Vector3 targetPosition = target.TransformPoint(<span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>, -<span class="hljs-number">10</span>));
+<span class="hljs-comment">// Di chuyển mượt mà camera đến vị trí mục tiêu đó</span>
+transform.position = Vector3.SmoothDamp(transform.position, targetPosition, <span class="hljs-keyword">ref</span> velocity, smoothTime);
+</code></pre>
+    <h3 class="code-line" data-line-start="415" data-line-end="416"><a id="Xoay_i_Tng_415"></a>Xoay Đối Tượng</h3>
+    <h4 class="code-line" data-line-start="416" data-line-end="417"><a id="Transformrotation_416"></a>Transform.rotation
+    </h4>
+    <pre><code class="has-line-data" data-line-start="418" data-line-end="424"><span class="hljs-comment">// Một Quaternion lưu trữ sự quay của Transform trong không gian thế giới.</span>
+<span class="hljs-comment">// Quaternions dựa trên số phức và không gặp vấn đề gimbal lock.</span>
+<span class="hljs-comment">// Unity sử dụng Quaternion để biểu diễn tất cả các phép quay nội tại.</span>
+
+transform.rotation = <span class="hljs-keyword">new</span> Quaternion(rotx, roty, rotz, rotw);
+</code></pre>
+    <h4 class="code-line" data-line-start="425" data-line-end="426"><a
+            id="TransformeulerAngles_425"></a>Transform.eulerAngles</h4>
+    <pre><code class="has-line-data" data-line-start="427" data-line-end="433"><span class="hljs-comment">// Transform.eulerAngles biểu diễn phép quay trong không gian thế giới. </span>
+<span class="hljs-comment">// Quan trọng để hiểu rằng mặc dù bạn cung cấp các giá trị quay X, Y và Z để mô tả phép quay của bạn</span>
+<span class="hljs-comment">// những giá trị đó không được lưu trữ trong phép quay. Thay vào đó, các giá trị X, Y &amp; Z được chuyển đổi vào định dạng nội tại của Quaternion.</span>
+
+transform.eulerAngles = Vector3(rotx, roty, rotz);
+</code></pre>
+    <h4 class="code-line" data-line-start="434" data-line-end="435"><a id="TransformRotate_434"></a>Transform.Rotate()
+    </h4>
+    <pre><code class="has-line-data" data-line-start="436" data-line-end="442"><span class="hljs-comment">// Áp dụng phép quay xung quanh tất cả các trục được cung cấp.</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Rotate</span>(<span class="hljs-params">Vector3 eulers, Space relativeTo = Space.Self</span>)</span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Rotate</span>(<span class="hljs-params"><span class="hljs-keyword">float</span> xAngle, <span class="hljs-keyword">float</span> yAngle, <span class="hljs-keyword">float</span> zAngle, Space relativeTo = Space.Self</span>)</span>;
+
+transform.Rotate(rotx, roty, rotz);
+</code></pre>
+    <h4 class="code-line" data-line-start="443" data-line-end="444"><a
+            id="TransformRotateAround_443"></a>Transform.RotateAround()</h4>
+    <pre><code class="has-line-data" data-line-start="445" data-line-end="452"><span class="hljs-comment">// Quay đối tượng xung quanh trục đi qua điểm trong tọa độ thế giới với góc quay là angle độ.</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">RotateAround</span>(<span class="hljs-params">Vector3 point, Vector3 axis, <span class="hljs-keyword">float</span> angle</span>)</span>;
+
+<span class="hljs-comment">// Xoay đối tượng xung quanh mục tiêu ở 20 độ/giây.</span>
+Transform target;
+transform.RotateAround(target.position, Vector3.up, <span class="hljs-number">20</span> * Time.deltaTime);
+</code></pre>
+    <h4 class="code-line" data-line-start="453" data-line-end="454"><a id="TransformLookAt_453"></a>Transform.LookAt()
+    </h4>
+    <pre><code class="has-line-data" data-line-start="455" data-line-end="466"><span class="hljs-comment">// Chỉ hướng phía trước ('Z' tích cực) của đối tượng đến một vị trí trong không gian thế giới.</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LookAt</span>(<span class="hljs-params">Transform target</span>)</span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LookAt</span>(<span class="hljs-params">Transform target, Vector3 worldUp = Vector3.up</span>)</span>;
+
+<span class="hljs-comment">// Quay vector phía trước của đối tượng để chỉ đến Transform mục tiêu.</span>
+Transform target;
+transform.LookAt(target);
+
+<span class="hljs-comment">// Giống như trên, nhưng đặt tham số worldUp thành Vector3.left trong ví dụ này làm cho đối tượng nghiêng về một bên.</span>
+transform.LookAt(target, Vector3.left);
+</code></pre>
+    <h4 class="code-line" data-line-start="467" data-line-end="468"><a
+            id="QuaternionLookRotation_467"></a>Quaternion.LookRotation()</h4>
+    <pre><code class="has-line-data" data-line-start="469" data-line-end="477"><span class="hljs-comment">// Tạo một quay xoay với hướng cụ thể của forward và upwards được chỉ định.</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Quaternion <span class="hljs-title">LookRotation</span>(<span class="hljs-params">Vector3 forward, Vector3 upwards = Vector3.up</span>)</span>;
+
+<span class="hljs-comment">// Đoạn mã dưới đây quay đối tượng hướng về một đối tượng mục tiêu.</span>
+Vector3 direction = target.position - transform.position;
+Quaternion rotation = Quaternion.LookRotation(direction);
+transform.rotation = rotation;
+</code></pre>
+    <h4 class="code-line" data-line-start="478" data-line-end="479"><a
+            id="QuaternionFromToRotation_478"></a>Quaternion.FromToRotation()</h4>
+    <pre><code class="has-line-data" data-line-start="480" data-line-end="486"><span class="hljs-comment">// Tạo ra một quay (Quaternion) xoay từ hướng fromDirection đến toDirection.</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Quaternion <span class="hljs-title">FromToRotation</span>(<span class="hljs-params">Vector3 fromDirection, Vector3 toDirection</span>)</span>;
+
+<span class="hljs-comment">// Đặt quay sao cho trục y của transform nằm dọc theo trục z.</span>
+transform.rotation = Quaternion.FromToRotation(Vector3.up, transform.forward);
+</code></pre>
+    <h4 class="code-line" data-line-start="487" data-line-end="488"><a
+            id="QuaternionToAngleAxis_487"></a>Quaternion.ToAngleAxis()</h4>
+    <pre><code class="has-line-data" data-line-start="489" data-line-end="498"><span class="hljs-comment">// Chuyển đổi quay thành biểu diễn góc-trục (góc theo đơn vị độ).</span>
+<span class="hljs-comment">// Nói cách khác, trích xuất góc cũng như trục mà quaternion này đại diện.</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ToAngleAxis</span>(<span class="hljs-params"><span class="hljs-keyword">out</span> <span class="hljs-keyword">float</span> angle, <span class="hljs-keyword">out</span> Vector3 axis</span>)</span>;
+
+<span class="hljs-comment">// Trích xuất góc quay - trục từ quay của transform</span>
+<span class="hljs-keyword">float</span> angle = <span class="hljs-number">0.0</span>f;
+Vector3 axis = Vector3.zero;
+transform.rotation.ToAngleAxis(<span class="hljs-keyword">out</span> angle, <span class="hljs-keyword">out</span> axis);
+</code></pre>
+    <h2 class="code-line" data-line-start="498" data-line-end="499"><a id="Input_498"></a>Input</h2>
+    <h3 class="code-line" data-line-start="500" data-line-end="501"><a id="Bn_Phm_500"></a>Bàn Phím</h3>
+    <pre><code class="has-line-data" data-line-start="503" data-line-end="513"><span class="hljs-comment">// Trả về true trong suốt frame khi người dùng bắt đầu nhấn xuống phím</span>
+<span class="hljs-keyword">if</span> (Input.GetKeyDown(KeyCode.Space)) {
+    Debug.Log(<span class="hljs-string">"Space key was pressed"</span>);
+}
+
+<span class="hljs-comment">// Chức năng nhảy cũng được đặt cho phím Space trong Input Manager</span>
+<span class="hljs-keyword">if</span> (Input.GetButtonDown(<span class="hljs-string">"Jump"</span>)) {
+    Debug.Log(<span class="hljs-string">"Do something"</span>);
+}
+</code></pre>
+    <h3 class="code-line" data-line-start="514" data-line-end="515"><a id="Chut_514"></a>Chuột</h3>
+    <pre><code class="has-line-data" data-line-start="517" data-line-end="537"><span class="hljs-keyword">if</span> (Input.GetAxis(<span class="hljs-string">"Mouse X"</span>) &lt; <span class="hljs-number">0</span>) {
+    Debug.Log(<span class="hljs-string">"Mouse moved left"</span>);
+}
+
+<span class="hljs-keyword">if</span> (Input.GetAxis(<span class="hljs-string">"Mouse Y"</span>) &gt; <span class="hljs-number">0</span>) {
+    Debug.Log(<span class="hljs-string">"Mouse moved up"</span>);
+}
+
+<span class="hljs-keyword">if</span> (Input.GetMouseButtonDown(<span class="hljs-number">0</span>)) {
+    Debug.Log(<span class="hljs-string">"Pressed primary button."</span>);
+}
+
+<span class="hljs-keyword">if</span> (Input.GetMouseButtonDown(<span class="hljs-number">1</span>)) {
+    Debug.Log(<span class="hljs-string">"Pressed secondary button."</span>);
+}
+
+<span class="hljs-keyword">if</span> (Input.GetMouseButtonDown(<span class="hljs-number">2</span>)) {
+    Debug.Log(<span class="hljs-string">"Pressed middle click."</span>);
+}
+</code></pre>
+    <h3 class="code-line" data-line-start="538" data-line-end="539"><a id="Chm_538"></a>Chạm</h3>
+    <pre><code class="has-line-data" data-line-start="540" data-line-end="556"><span class="hljs-keyword">if</span> (Input.touchCount &gt; <span class="hljs-number">0</span>) {
+    touch = Input.GetTouch(<span class="hljs-number">0</span>);
+
+    <span class="hljs-keyword">if</span> (touch.phase == TouchPhase.Began) {
+        Debug.Log(<span class="hljs-string">"Touch began"</span>);
+    }
+
+    <span class="hljs-keyword">if</span> (touch.phase == TouchPhase.Moved) {
+        Debug.Log(<span class="hljs-string">"Touch moves"</span>);
+    }
+
+    <span class="hljs-keyword">if</span> (touch.phase == TouchPhase.Ended) {
+        Debug.Log(<span class="hljs-string">"Touch ended"</span>);
+    }
+}
+</code></pre>
+    <h2 class="code-line" data-line-start="557" data-line-end="558"><a id="Giao_Din_Ngi_Dng_UI_557"></a>Giao Diện Người
+        Dùng (UI)</h2>
+    <pre><code class="has-line-data" data-line-start="560" data-line-end="574">
+<span class="hljs-preprocessor">### Nút (Button)</span>
+<span class="hljs-comment">// Button được sử dụng để xử lý sự nhấn và tương tác của người dùng.</span>
+<span class="hljs-comment">// Gắn kịch bản này vào một thành phần Button để phản ứng với sự nhấp vào nút.</span>
+
+<span class="hljs-keyword">using</span> UnityEngine.UI;
+
+Button myButton = GetComponent&lt;Button&gt;();
+myButton.onClick.AddListener(MyButtonClickHandler);
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">MyButtonClickHandler</span>(<span class="hljs-params"></span>) </span>{
+    Debug.Log(<span class="hljs-string">"Button Clicked!"</span>);
+}
+</code></pre>
+    <h3 class="code-line" data-line-start="575" data-line-end="576"><a id="Thanh_Trt_Slider_575"></a>Thanh Trượt
+        (Slider)</h3>
+    <pre><code class="has-line-data" data-line-start="577" data-line-end="589"><span class="hljs-comment">// Slider được sử dụng để chọn một giá trị trong khoảng.</span>
+<span class="hljs-comment">// Gắn kịch bản này vào một thành phần Slider để phản ứng với sự thay đổi giá trị.</span>
+
+<span class="hljs-keyword">using</span> UnityEngine.UI;
+
+Slider mySlider = GetComponent&lt;Slider&gt;();
+mySlider.onValueChanged.AddListener(MySliderValueChangedHandler);
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">MySliderValueChangedHandler</span>(<span class="hljs-params"><span class="hljs-keyword">float</span> <span class="hljs-keyword">value</span></span>) </span>{
+    Debug.Log(<span class="hljs-string">"Slider Value: "</span> + <span class="hljs-keyword">value</span>);
+}
+</code></pre>
+    <h2 class="code-line" data-line-start="590" data-line-end="591"><a id="m_Thanh_590"></a>Âm Thanh</h2>
+    <h3 class="code-line" data-line-start="592" data-line-end="593"><a id="Chi_m_Thanh_C_Bn_592"></a>Chơi Âm Thanh Cơ
+        Bản</h3>
+    <pre><code class="has-line-data" data-line-start="595" data-line-end="604"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PlayAudio</span> : <span class="hljs-title">MonoBehaviour</span> {
+    <span class="hljs-keyword">public</span> AudioSource audioSource;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">// Gọi Play trên một Audio Source đang phát sẽ khiến nó bắt đầu từ đầu.</span>
+        audioSource.Play();
+    }
+}
+</code></pre>
+    <h2 class="code-line" data-line-start="606" data-line-end="607"><a id="M_Hnh_Thit_K_606"></a>Mô Hình Thiết Kế</h2>
+    <h3 class="code-line" data-line-start="607" data-line-end="608"><a id="Singleton_607"></a>Singleton</h3>
+    <pre><code class="has-line-data" data-line-start="610" data-line-end="634"><span class="hljs-comment">// Định nghĩa lớp singleton</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SingletonClass</span>: <span class="hljs-title">MonoBehaviour</span> {
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> SomeClass instance;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> SomeClass Instance { <span class="hljs-keyword">get</span> { <span class="hljs-keyword">return</span> instance; } }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Awake</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">if</span> (instance != <span class="hljs-keyword">null</span> &amp;&amp; instance != <span class="hljs-keyword">this</span>) {
+            Destroy(<span class="hljs-keyword">this</span>.gameObject);
+        } <span class="hljs-keyword">else</span> {
+            instance = <span class="hljs-keyword">this</span>;
+        }
+    }
+}
+
+<span class="hljs-comment">// Sử dụng nó trong một lớp khác</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">AnotherClass</span>: <span class="hljs-title">MonoBehaviour</span> {
+    <span class="hljs-keyword">public</span> Singleton instance;
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Awake</span>(<span class="hljs-params"></span>) </span>{
+       instance = Singleton.Instance;
+    }
+}
+</code></pre>
+    <h2 class="code-line" data-line-start="634" data-line-end="635"><a id="References_634"></a>References</h2>
+    <p class="has-line-data" data-line-start="636" data-line-end="637">LUIS RAMIREZ JR. (Unity Game Development Cheat
+        Sheet)</p>
+    <p class="has-line-data" data-line-start="638" data-line-end="639">Ozan Kaşıkçı (Unity Cheat Sheet)</p>
+</body>
+
+</html>
